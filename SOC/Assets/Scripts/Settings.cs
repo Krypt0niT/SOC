@@ -8,4 +8,5 @@ public class Settings : MonoBehaviour
     public float sensitivityX;
     public float sensitivityY;
 
+
 }
