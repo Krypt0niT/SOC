@@ -31,7 +31,7 @@ public class PlayerCamera : MonoBehaviour
         yRotation += mouseX;
         xRotation -= mouseY;
         //zabezpecenie maximalnej rozacie osi x
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
