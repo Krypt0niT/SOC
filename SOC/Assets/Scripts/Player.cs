@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
@@ -21,6 +20,10 @@ public class Player : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
