@@ -69,5 +69,6 @@ public class Player : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * PlayerSpeed;
             rb.velocity = new Vector3(limitedVel.x,rb.velocity.y, limitedVel.z);
         }
+        
     }
 }
