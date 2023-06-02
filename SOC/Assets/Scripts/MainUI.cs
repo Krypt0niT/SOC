@@ -18,20 +18,34 @@ public class MainUI : MonoBehaviour
     void Update()
     {
         debugspeed.text = "speed: " + GameObject.Find("Player").GetComponent<Rigidbody>().velocity.ToString();
+        interactText();
+
+    }
+    void interactText()
+    {
         interactionDebug.text = "";
         GameObject target = GameObject.Find("Player").GetComponent<Player>().getAimedObject();
-        if (target != null)
+        print(target);
+        if (target == null )
         {
-            if(target.transform.parent.GetComponent<Npc>() != null)
-            {
-                if (target.transform.parent.GetComponent<Npc>().playerInRange)
-                {
-                    interactionDebug.text = "Press E to interact";
-                }
-            }
-            
-            
+            return;
         }
-
+        if(target.transform.parent.GetComponent<Npc>() == null)
+        {
+            return;
+        }
+        if (!target.transform.parent.GetComponent<Npc>().playerInRange)
+        {
+            return;
+        }
+        if (!target.transform.parent.GetComponent<Npc>().interactable)
+        {
+            return; 
+        }
+        if (target.tag != "npc")
+        {
+            return;
+        }
+        interactionDebug.text = "Press E to interact";
     }
 }
