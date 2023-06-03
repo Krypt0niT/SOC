@@ -25,7 +25,6 @@ public class MainUI : MonoBehaviour
     {
         interactionDebug.text = "";
         GameObject target = GameObject.Find("Player").GetComponent<Player>().getAimedObject();
-        print(target);
         if (target == null )
         {
             return;

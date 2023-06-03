@@ -8,5 +8,6 @@ public class Settings : MonoBehaviour
     public float sensitivityX;
     public float sensitivityY;
 
+    public KeyCode interactKey = KeyCode.E;
 
 }

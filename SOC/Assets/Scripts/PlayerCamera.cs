@@ -24,17 +24,28 @@ public class PlayerCamera : MonoBehaviour
     }
     private void Update()
     {
-        //odchytenie inputu myši
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        if (GameObject.FindAnyObjectByType<Player>().cameraRotation)
+        {
+            //odchytenie inputu myši
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        //zabezpecenie maximalnej rozacie osi x
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+            yRotation += mouseX;
+            xRotation -= mouseY;
+            //zabezpecenie maximalnej rozacie osi x
+            xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        
     }
 }

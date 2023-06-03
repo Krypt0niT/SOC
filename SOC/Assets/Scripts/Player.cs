@@ -13,9 +13,14 @@ public class Player : MonoBehaviour
     bool grounded;
     public Transform orientation;
 
+    //settings / controls
+    Settings settings;
 
     float horizontalInput;
     float verticalInput;
+
+    bool playerInteracting = false;
+    public bool cameraRotation = true;
 
     Vector3 moveDirection;
 
@@ -31,6 +36,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        settings = GameObject.Find("Manager").GetComponent<Settings>();
     }
     private void Update()
     {
@@ -39,8 +45,23 @@ public class Player : MonoBehaviour
 
         speedControl();
         myInput();
+        Grounded();
+        interactControll();
 
 
+
+
+
+
+
+
+    }
+    private void FixedUpdate()
+    {
+        movePLayer();
+    }
+    void Grounded()
+    {
         if (grounded)
         {
             rb.drag = groundDrag;
@@ -49,16 +70,7 @@ public class Player : MonoBehaviour
         {
             rb.drag = 0;
         }
-        
-        
-
-        
     }
-    private void FixedUpdate()
-    {
-        movePLayer();
-    }
-    
     private void myInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -77,7 +89,27 @@ public class Player : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * PlayerSpeed;
             rb.velocity = new Vector3(limitedVel.x,rb.velocity.y, limitedVel.z);
         }
-        
+    }
+    private void interactControll()
+    {
+        if (Input.GetKeyDown(settings.interactKey))
+        {
+            if(getAimedObject() == null) { return; }
+            if (getAimedObject().transform.parent.GetComponent<Npc>() == null) { return; }
+            if (!getAimedObject().transform.parent.GetComponent<Npc>().playerInRange) { return; }
+            if (!getAimedObject().transform.parent.GetComponent<Npc>().interactable) { return; }
+            if (getAimedObject().tag != "npc") { return; }
+            if (!playerInteracting)
+            {
+                cameraRotation = false;
+                playerInteracting = true;
+            }
+            else
+            {
+                cameraRotation = true;
+                playerInteracting = false;
+            }
+        }
     }
     public GameObject getAimedObject()
     {
