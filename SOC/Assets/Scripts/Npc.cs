@@ -9,9 +9,15 @@ public class Npc : MonoBehaviour
     public bool hasTask = false;
     public bool playerInRange = false;
 
+    [SerializeField] Material defaultMaterial;
+    [SerializeField] Material interactableMaterial;
+    [SerializeField] Material taskMaterial;
+
+
     private void Update()
     {
         taskFinder();
+        changeColor();
     }
     void taskFinder()
     {
@@ -20,5 +26,19 @@ public class Npc : MonoBehaviour
         else
         { hasTask = false; }
     }
-    
+    void changeColor()
+    {
+        if (hasTask)
+        {
+            gameObject.transform.Find("human model").GetComponent<Renderer>().material = taskMaterial;
+            return;
+        }
+        if (interactable)
+        {
+            gameObject.transform.Find("human model").GetComponent<Renderer>().material = interactableMaterial;
+            return;
+        }
+        gameObject.transform.Find("human model").GetComponent<Renderer>().material = defaultMaterial;
+
+    }
 }
