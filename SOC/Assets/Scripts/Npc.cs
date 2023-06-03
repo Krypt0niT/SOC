@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Npc : MonoBehaviour
 {
@@ -13,19 +14,37 @@ public class Npc : MonoBehaviour
     public string interctiveText = "";
     public int interactiveIndex = 0;
     public List<string> conversation = new List<string>();
-    
+
+    TextMeshPro symbol;
 
 
 
+    private void Start()
+    {
+        symbol = this.gameObject.transform.Find("symbol").GetComponent<TextMeshPro>();
+    }
 
-
- 
 
 
     private void Update()
     {
         taskFinder();
         convoChange();
+        symbolUpdate();
+    }
+    void symbolUpdate()
+    {
+        if (hasTask)
+        {
+            symbol.text = "?";
+            return;
+        }
+        if (interactable)
+        {
+            symbol.text = "!";
+            return;
+        }
+        symbol.text = "";
     }
     void taskFinder()
     {
@@ -47,7 +66,10 @@ public class Npc : MonoBehaviour
                 if (conversation.Count == interactiveIndex)
                 {
                     interctiveText = "";
-                    GameObject.FindAnyObjectByType<MainUI>().TaskBarShow();
+                    if (GameObject.FindObjectOfType<Player>().playerInteracting)
+                    {
+                        GameObject.FindAnyObjectByType<MainUI>().TaskBarShow();
+                    }
                 }
                 else
                 {

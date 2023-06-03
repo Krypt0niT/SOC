@@ -80,7 +80,7 @@ public class MainUI : MonoBehaviour
     public void TaskBarShow()
     {
         TaskBar.SetActive(true);
-        TaskText.text = GameObject.FindAnyObjectByType<Player>().getAimedObject().transform.parent.GetComponent<Task>().name;
+        TaskText.text = GameObject.FindObjectOfType<Player>().getAimedObject().transform.parent.GetComponent<Task>().name;
     }
     public void HideBarShow()
     {
@@ -121,13 +121,21 @@ public class MainUI : MonoBehaviour
     void npcInteractiveText()
     {
         Player player = GameObject.Find("Player").GetComponent<Player>();
+
         if (!player.playerInteracting) { return; }
+        
         if (player.getAimedObject() == null)
         {
             player.cameraRotation = true;
             player.playerInteracting = false;
             return;
 
+        }
+        if (!player.getAimedObject().transform.parent.GetComponent<Npc>().playerInRange)
+        {
+            player.cameraRotation = true;
+            player.playerInteracting = false;
+            return;
         }
         interactiveText.text = player.getAimedObject()
             .transform.parent.GetComponent<Npc>().interctiveText;

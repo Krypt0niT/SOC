@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
     }
     public GameObject getAimedObject()
     {
-        LayerMask layerMask = LayerMask.GetMask("Default");
+        LayerMask layerMask = LayerMask.GetMask("NPCs");
         // Vytvoríme raycast z kamery na stred obrazovky
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         RaycastHit hit;
