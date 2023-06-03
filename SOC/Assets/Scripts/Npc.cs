@@ -9,6 +9,14 @@ public class Npc : MonoBehaviour
     public bool hasTask = false;
     public bool playerInRange = false;
 
+    public string interctiveText = "Ahoj! Som tvoj virtuálny sprievodca v tomto školskom simulátore." +
+        " Vždy keď ma potrebuješ, tu som pre teba. Neboj sa pýtať, rád ti pomôžem objaviť svet vzdelávania a zábavy!";
+
+
+
+
+
+
     [SerializeField] Material defaultMaterial;
     [SerializeField] Material interactableMaterial;
     [SerializeField] Material taskMaterial;

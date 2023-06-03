@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
-    bool playerInteracting = false;
+    public bool playerInteracting = false;
     public bool cameraRotation = true;
 
     Vector3 moveDirection;
@@ -99,7 +99,8 @@ public class Player : MonoBehaviour
             if (!getAimedObject().transform.parent.GetComponent<Npc>().playerInRange) { return; }
             if (!getAimedObject().transform.parent.GetComponent<Npc>().interactable) { return; }
             if (getAimedObject().tag != "npc") { return; }
-            if (!playerInteracting)
+            print(getAimedObject());
+            if (!playerInteracting) 
             {
                 cameraRotation = false;
                 playerInteracting = true;
