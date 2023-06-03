@@ -7,13 +7,16 @@ public class MainUI : MonoBehaviour
 
     TextMeshProUGUI debugspeed;
     TextMeshProUGUI interactionDebug;
+    TextMeshProUGUI interactiveText;
+    TextMeshProUGUI interactiveName;
     GameObject crosshair;
     GameObject interactiveBar;
     // Start is called before the first frame update
     void Start()
     {
-        debugspeed = GameObject.Find("debug speed").GetComponent<TextMeshProUGUI>();
         interactionDebug = GameObject.Find("interaction").GetComponent<TextMeshProUGUI>();
+        interactiveText = GameObject.Find("interactiveText").GetComponent<TextMeshProUGUI>();
+        interactiveName = GameObject.Find("interactiveName").GetComponent<TextMeshProUGUI>();
         crosshair = GameObject.Find("crosshair");
         interactiveBar = GameObject.Find("interactiveBar");
     }
@@ -21,8 +24,7 @@ public class MainUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        debugspeed.text = "speed: " + GameObject.Find("Player").GetComponent<Rigidbody>().velocity.ToString();
-        interactText();
+        playerInteractText();
 
 
         if (GameObject.Find("Player").GetComponent<Player>().cameraRotation) { crosshair.SetActive(true); }
@@ -30,9 +32,29 @@ public class MainUI : MonoBehaviour
 
         if (GameObject.Find("Player").GetComponent<Player>().playerInteracting) { interactiveBar.SetActive(true); }
         else { interactiveBar.SetActive(false); }
+
+        npcInteractiveText();
     }
-    void interactText()
+    public void nextConvo()
     {
+        Npc info = GameObject.Find("Player").GetComponent<Player>().getAimedObject()
+            .transform.parent.GetComponent<Npc>();
+        if (info.conversation.Count - 1 > info.interactiveIndex)
+        {
+            info.interactiveIndex++;
+        }
+        else
+        {
+            info.interactiveIndex = 0;
+            GameObject.Find("Player").GetComponent<Player>().cameraRotation = true;
+            GameObject.Find("Player").GetComponent<Player>().playerInteracting = false;
+
+        }
+        
+    }
+    void playerInteractText()
+    {
+
         interactionDebug.text = "";
         GameObject target = GameObject.Find("Player").GetComponent<Player>().getAimedObject();
         if (target == null )
@@ -55,6 +77,26 @@ public class MainUI : MonoBehaviour
         {
             return;
         }
+
+        //pokial iteraguje
+        if (GameObject.Find("Player").GetComponent<Player>().playerInteracting) { return; }
+
+
         interactionDebug.text = "Press E to interact";
+    }
+    void npcInteractiveText()
+    {
+        Player player = GameObject.Find("Player").GetComponent<Player>();
+        if (!player.playerInteracting) { return; }
+        if (player.getAimedObject() == null)
+        {
+            player.cameraRotation = true;
+            player.playerInteracting = false;
+            return;
+
+        }
+        interactiveText.text = player.getAimedObject()
+            .transform.parent.GetComponent<Npc>().interctiveText;
+        interactiveName.text = player.getAimedObject().transform.parent.name;
     }
 }

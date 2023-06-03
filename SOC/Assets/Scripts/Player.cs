@@ -94,12 +94,13 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(settings.interactKey))
         {
-            if(getAimedObject() == null) { return; }
+            print(getAimedObject());
+
+            if (getAimedObject() == null) { return; }
             if (getAimedObject().transform.parent.GetComponent<Npc>() == null) { return; }
             if (!getAimedObject().transform.parent.GetComponent<Npc>().playerInRange) { return; }
             if (!getAimedObject().transform.parent.GetComponent<Npc>().interactable) { return; }
             if (getAimedObject().tag != "npc") { return; }
-            print(getAimedObject());
             if (!playerInteracting) 
             {
                 cameraRotation = false;
@@ -109,20 +110,24 @@ public class Player : MonoBehaviour
             {
                 cameraRotation = true;
                 playerInteracting = false;
+                GameObject.Find("Player").GetComponent<Player>().getAimedObject()
+                    .transform.parent.GetComponent<Npc>().interactiveIndex = 0;
             }
         }
     }
     public GameObject getAimedObject()
     {
+        LayerMask layerMask = LayerMask.GetMask("Default");
         // Vytvoríme raycast z kamery na stred obrazovky
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         RaycastHit hit;
 
         // Kontrola, či raycast zasiahne nejaký objekt
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             // Získame informácie o zasiahnutom objekte
             return hit.transform.gameObject;
+            
 
             // Tu môžete vykonať akcie na základe zasiahnutého objektu
             // Napríklad môžete ho označiť, spustiť interakciu alebo získať ďalšie informácie.
