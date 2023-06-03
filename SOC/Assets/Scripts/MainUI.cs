@@ -80,6 +80,7 @@ public class MainUI : MonoBehaviour
     public void TaskBarShow()
     {
         TaskBar.SetActive(true);
+        TaskText.text = GameObject.FindAnyObjectByType<Player>().getAimedObject().transform.parent.GetComponent<Task>().name;
     }
     public void HideBarShow()
     {

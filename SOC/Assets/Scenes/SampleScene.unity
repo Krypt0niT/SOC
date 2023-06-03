@@ -259,7 +259,7 @@ Transform:
   - {fileID: 1825602205}
   - {fileID: 1003205088}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &147865836
 GameObject:
@@ -497,10 +497,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -672,7 +672,7 @@ Transform:
   - {fileID: 468407329}
   - {fileID: 1629360173}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &274476159
 MonoBehaviour:
@@ -731,8 +731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 48.500763}
-  m_SizeDelta: {x: 421.285, y: 198.5338}
+  m_AnchoredPosition: {x: -2.0218, y: 25.5092}
+  m_SizeDelta: {x: 421.285, y: 204.0823}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283465912
 MonoBehaviour:
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0.000030517578}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1189,7 +1189,7 @@ Transform:
   m_GameObject: {fileID: 407474576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 1, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 274476158}
@@ -1531,6 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9cefb3518652b4eaa1f1532c29b1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "Prenos krab\xEDc"
 --- !u!114 &461219412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1549,20 +1550,9 @@ MonoBehaviour:
   interctiveText: 
   interactiveIndex: 0
   conversation:
-  - "Ahoj! Som tvoj virtu\xE1lny sprievodca v tomto \u0161kolskom simul\xE1tore. 
-    V\u017Edy ke\u010F ma potrebuje\u0161, tu som pre teba. Neboj sa p\xFDta\u0165,
-    r\xE1d ti pom\xF4\u017Eem objavi\u0165 svet vzdel\xE1vania a z\xE1bavy!"
-  - "Rada sa st\xE1vam s\xFA\u010Das\u0165ou tvojej hry! Ak bude\u0161 ma\u0165 ak\xE9ko\u013Evek
-    \u010Fal\u0161ie ot\xE1zky alebo potrebuje\u0161 \u010Fal\u0161iu pomoc, nev\xE1haj
-    sa mi ozva\u0165. Z\xE1bavu a \xFAspech vo virtu\xE1lnom svete \u0161koly!"
-  - "\u010Eakujem, \u017Ee si si vybral tento \u0161kolsk\xFD simul\xE1tor! Ver\xEDm,
-    \u017Ee spolu pre\u017Eijeme \xFA\u017Easn\xE9 dobrodru\u017Estv\xE1 v prostred\xED
-    \u0161koly.Ak sa c\xEDti\u0161 straten\xFD alebo potrebuje\u0161 radu, v\u017Edy
-    ma tu n\xE1jde\u0161.Nech \u017Eiari tvoje vzdelanie v tejto simul\xE1cii!"
-  defaultMaterial: {fileID: 2100000, guid: 852e7f938b9e6554eb91e9b72be3f9d0, type: 2}
-  interactableMaterial: {fileID: 2100000, guid: 0c59b4c310a9e2543b507d175be707eb,
-    type: 2}
-  taskMaterial: {fileID: 2100000, guid: 90314487169585c438234dec41066bc9, type: 2}
+  - "Ahoj! M\xE1m pre teba \u0161peci\xE1lnu \xFAlohu. Potrebujem prenies\u0165 d\xF4le\u017Eit\xFD
+    materi\xE1l. Si na to?"
+  - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
 --- !u!4 &461219413
 Transform:
   m_ObjectHideFlags: 0
@@ -1579,7 +1569,7 @@ Transform:
   - {fileID: 256036227}
   - {fileID: 1135253508}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 302.498, z: 0}
 --- !u!1 &468407328
 GameObject:
@@ -1710,7 +1700,7 @@ RectTransform:
   - {fileID: 283465911}
   - {fileID: 1225849541}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1885,7 +1875,7 @@ Transform:
   m_Children:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &636766330
 MonoBehaviour:
@@ -1983,6 +1973,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671881847}
   m_Mesh: {fileID: -2995519189794809805, guid: 27e2e02a7e93b414e970605a66fcba03, type: 3}
+--- !u!1001 &761026904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.23
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 44.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 928afd7474e5baa4180eaab5276d261d, type: 2}
+    - target: {fileID: 919132149155446097, guid: 538c1c37dcad10f4e8998116fd9392f1,
+        type: 3}
+      propertyPath: m_Name
+      value: 3DModel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 8164078558771037576, guid: 538c1c37dcad10f4e8998116fd9392f1, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 538c1c37dcad10f4e8998116fd9392f1, type: 3}
 --- !u!1 &791374448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,7 +2097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -2077,7 +2146,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1003205087
 GameObject:
@@ -2909,7 +2978,7 @@ RectTransform:
   - {fileID: 1842556553}
   - {fileID: 1238416298}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3298,7 +3367,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580561938
 GameObject:
@@ -3345,10 +3414,6 @@ MonoBehaviour:
     \u017Ee spolu pre\u017Eijeme \xFA\u017Easn\xE9 dobrodru\u017Estv\xE1 v prostred\xED
     \u0161koly.Ak sa c\xEDti\u0161 straten\xFD alebo potrebuje\u0161 radu, v\u017Edy
     ma tu n\xE1jde\u0161.Nech \u017Eiari tvoje vzdelanie v tejto simul\xE1cii!"
-  defaultMaterial: {fileID: 2100000, guid: 852e7f938b9e6554eb91e9b72be3f9d0, type: 2}
-  interactableMaterial: {fileID: 2100000, guid: 0c59b4c310a9e2543b507d175be707eb,
-    type: 2}
-  taskMaterial: {fileID: 2100000, guid: 90314487169585c438234dec41066bc9, type: 2}
 --- !u!4 &1580561940
 Transform:
   m_ObjectHideFlags: 0
@@ -3365,7 +3430,7 @@ Transform:
   - {fileID: 1350528290}
   - {fileID: 1229490008}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 302.498, z: 0}
 --- !u!1 &1629360172
 GameObject:
@@ -3660,7 +3725,7 @@ Transform:
   - {fileID: 1482455494}
   - {fileID: 147865837}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 302.498, z: 0}
 --- !u!114 &1963038340
 MonoBehaviour:
@@ -3680,10 +3745,6 @@ MonoBehaviour:
   interctiveText: 
   interactiveIndex: 0
   conversation: []
-  defaultMaterial: {fileID: 2100000, guid: 852e7f938b9e6554eb91e9b72be3f9d0, type: 2}
-  interactableMaterial: {fileID: 2100000, guid: 0c59b4c310a9e2543b507d175be707eb,
-    type: 2}
-  taskMaterial: {fileID: 2100000, guid: 90314487169585c438234dec41066bc9, type: 2}
 --- !u!1 &1971849011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,7 +3778,7 @@ Transform:
   - {fileID: 61576089}
   - {fileID: 1446011184}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2081559608
 GameObject:

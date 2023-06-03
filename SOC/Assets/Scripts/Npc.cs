@@ -19,15 +19,12 @@ public class Npc : MonoBehaviour
 
 
 
-    [SerializeField] Material defaultMaterial;
-    [SerializeField] Material interactableMaterial;
-    [SerializeField] Material taskMaterial;
+ 
 
 
     private void Update()
     {
         taskFinder();
-        changeColor();
         convoChange();
     }
     void taskFinder()
@@ -63,19 +60,5 @@ public class Npc : MonoBehaviour
             GameObject.FindAnyObjectByType<MainUI>().HideBarShow();
         }
     }
-    void changeColor()
-    {
-        if (hasTask)
-        {
-            gameObject.transform.Find("human model").GetComponent<Renderer>().material = taskMaterial;
-            return;
-        }
-        if (interactable)
-        {
-            gameObject.transform.Find("human model").GetComponent<Renderer>().material = interactableMaterial;
-            return;
-        }
-        gameObject.transform.Find("human model").GetComponent<Renderer>().material = defaultMaterial;
-
-    }
+    
 }
