@@ -5,12 +5,16 @@ using TMPro;
 public class MainUI : MonoBehaviour
 {
 
-    TextMeshProUGUI debugspeed;
     TextMeshProUGUI interactionDebug;
     TextMeshProUGUI interactiveText;
     TextMeshProUGUI interactiveName;
     GameObject crosshair;
     GameObject interactiveBar;
+
+    GameObject TaskBar;
+    TextMeshProUGUI TaskText;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,9 @@ public class MainUI : MonoBehaviour
         interactiveName = GameObject.Find("interactiveName").GetComponent<TextMeshProUGUI>();
         crosshair = GameObject.Find("crosshair");
         interactiveBar = GameObject.Find("interactiveBar");
+        TaskBar = GameObject.Find("TaskBar");
+        TaskText = GameObject.Find("TaskText").GetComponent<TextMeshProUGUI>();
+        TaskBar.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,18 +46,44 @@ public class MainUI : MonoBehaviour
     {
         Npc info = GameObject.Find("Player").GetComponent<Player>().getAimedObject()
             .transform.parent.GetComponent<Npc>();
-        if (info.conversation.Count - 1 > info.interactiveIndex)
+        if (!info.hasTask)
         {
-            info.interactiveIndex++;
+            TaskBar.SetActive(false);
+            if (info.conversation.Count - 1 > info.interactiveIndex)
+            {
+                info.interactiveIndex++;
+            }
+            else
+            {
+                info.interactiveIndex = 0;
+                GameObject.Find("Player").GetComponent<Player>().cameraRotation = true;
+                GameObject.Find("Player").GetComponent<Player>().playerInteracting = false;
+            }
         }
         else
         {
-            info.interactiveIndex = 0;
-            GameObject.Find("Player").GetComponent<Player>().cameraRotation = true;
-            GameObject.Find("Player").GetComponent<Player>().playerInteracting = false;
+            if (info.conversation.Count > info.interactiveIndex)
+            {
+                info.interactiveIndex++;
+            }
 
+            else
+            {
+                info.interactiveIndex = 0;
+                GameObject.Find("Player").GetComponent<Player>().cameraRotation = true;
+                GameObject.Find("Player").GetComponent<Player>().playerInteracting = false;
+            }
         }
         
+        
+    }
+    public void TaskBarShow()
+    {
+        TaskBar.SetActive(true);
+    }
+    public void HideBarShow()
+    {
+        TaskBar.SetActive(false);
     }
     void playerInteractText()
     {

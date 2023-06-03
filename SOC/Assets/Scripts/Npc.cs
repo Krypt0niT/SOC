@@ -22,24 +22,13 @@ public class Npc : MonoBehaviour
     [SerializeField] Material defaultMaterial;
     [SerializeField] Material interactableMaterial;
     [SerializeField] Material taskMaterial;
-    private void Start()
-    {
-        //naplnenie interakcie (mozne z editoru)
-        conversation.Add("Ahoj! Som tvoj virtuálny sprievodca v tomto školskom simulátore." +
-            " Vždy keď ma potrebuješ, tu som pre teba. Neboj sa pýtať, rád ti pomôžem objaviť svet vzdelávania a zábavy!");
-        conversation.Add("Rada sa stávam súčasťou tvojej hry!" +
-            " Ak budeš mať akékoľvek ďalšie otázky alebo potrebuješ ďalšiu pomoc, neváhaj sa mi ozvať." +
-            " Zábavu a úspech vo virtuálnom svete školy!");
-        conversation.Add("Ďakujem, že si si vybral tento školský simulátor! Verím, že spolu prežijeme úžasné dobrodružstvá" +
-            " v prostredí školy.Ak sa cítiš stratený alebo potrebuješ radu, vždy ma tu nájdeš.Nech žiari tvoje vzdelanie v tejto simulácii!");
 
-    }
 
     private void Update()
     {
         taskFinder();
         changeColor();
-        interctiveText = conversation[interactiveIndex];
+        convoChange();
     }
     void taskFinder()
     {
@@ -47,6 +36,32 @@ public class Npc : MonoBehaviour
         { hasTask = true; }
         else
         { hasTask = false; }
+    }
+    void convoChange()
+    {
+        if (conversation.Count != 0)
+        {
+            if (!hasTask)
+            {
+                interctiveText = conversation[interactiveIndex];
+            }
+            else
+            {
+                if (conversation.Count == interactiveIndex)
+                {
+                    interctiveText = "";
+                    GameObject.FindAnyObjectByType<MainUI>().TaskBarShow();
+                }
+                else
+                {
+                    interctiveText = conversation[interactiveIndex];
+                }
+            }
+        }
+        if (!GameObject.FindAnyObjectByType<Player>().playerInteracting)
+        {
+            GameObject.FindAnyObjectByType<MainUI>().HideBarShow();
+        }
     }
     void changeColor()
     {

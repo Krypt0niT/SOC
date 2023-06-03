@@ -94,7 +94,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(settings.interactKey))
         {
-            print(getAimedObject());
 
             if (getAimedObject() == null) { return; }
             if (getAimedObject().transform.parent.GetComponent<Npc>() == null) { return; }
@@ -105,6 +104,7 @@ public class Player : MonoBehaviour
             {
                 cameraRotation = false;
                 playerInteracting = true;
+
             }
             else
             {
