@@ -14,7 +14,10 @@ public class MainUI : MonoBehaviour
     GameObject TaskBar;
     TextMeshProUGUI TaskText;
 
+    GameObject TaskBarTake;
+    GameObject TaskBarTaken;
 
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,9 @@ public class MainUI : MonoBehaviour
         TaskBar = GameObject.Find("TaskBar");
         TaskText = GameObject.Find("TaskText").GetComponent<TextMeshProUGUI>();
         TaskBar.SetActive(false);
+        TaskBarTake = TaskBar.transform.Find("TaskBarTake").gameObject;
+        TaskBarTaken = TaskBar.transform.Find("TaskBarTaken").gameObject;
+        player = GameObject.FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -33,18 +39,18 @@ public class MainUI : MonoBehaviour
     {
         playerInteractText();
 
-
-        if (GameObject.Find("Player").GetComponent<Player>().cameraRotation) { crosshair.SetActive(true); }
+        
+        if (player.cameraRotation) { crosshair.SetActive(true); }
         else { crosshair.SetActive(false); }
 
-        if (GameObject.Find("Player").GetComponent<Player>().playerInteracting) { interactiveBar.SetActive(true); }
+        if (player.playerInteracting) { interactiveBar.SetActive(true); }
         else { interactiveBar.SetActive(false); }
 
         npcInteractiveText();
     }
     public void nextConvo()
     {
-        Npc info = GameObject.Find("Player").GetComponent<Player>().getAimedObject()
+        Npc info = player.getAimedObject()
             .transform.parent.GetComponent<Npc>();
         if (!info.hasTask)
         {
@@ -56,8 +62,8 @@ public class MainUI : MonoBehaviour
             else
             {
                 info.interactiveIndex = 0;
-                GameObject.Find("Player").GetComponent<Player>().cameraRotation = true;
-                GameObject.Find("Player").GetComponent<Player>().playerInteracting = false;
+                player.cameraRotation = true;
+                player.playerInteracting = false;
             }
         }
         else
@@ -70,8 +76,8 @@ public class MainUI : MonoBehaviour
             else
             {
                 info.interactiveIndex = 0;
-                GameObject.Find("Player").GetComponent<Player>().cameraRotation = true;
-                GameObject.Find("Player").GetComponent<Player>().playerInteracting = false;
+                player.cameraRotation = true;
+                player.playerInteracting = false;
             }
         }
         
@@ -80,11 +86,35 @@ public class MainUI : MonoBehaviour
     public void TaskBarShow()
     {
         TaskBar.SetActive(true);
-        TaskText.text = GameObject.FindObjectOfType<Player>().getAimedObject().transform.parent.GetComponent<Task>().name;
+        Task task = player.getAimedObject().transform.parent.GetComponent<Task>();
+
+        TaskText.text = task.Name;
+        if (!task.taken)
+        {
+            TaskBarTake.SetActive(true);
+            TaskBarTaken.SetActive(false);
+        }
+        else
+        {
+            TaskBarTake.SetActive(false);
+            TaskBarTaken.SetActive(true);
+        }
     }
-    public void HideBarShow()
+    public void TaskBarHide()
     {
         TaskBar.SetActive(false);
+    }
+    public void TakeTask()
+    {
+        if (player.taskCapacity <= player.tasks.Count) { return; }
+        player.tasks.Add(player.getAimedObject().transform.parent.GetComponent<Task>());
+
+
+        player.getAimedObject().transform.parent.GetComponent<Task>().taken = true;
+        player.cameraRotation = true;
+        player.playerInteracting = false;
+        
+        return;
     }
     void playerInteractText()
     {
@@ -120,7 +150,7 @@ public class MainUI : MonoBehaviour
     }
     void npcInteractiveText()
     {
-        Player player = GameObject.Find("Player").GetComponent<Player>();
+        
 
         if (!player.playerInteracting) { return; }
         

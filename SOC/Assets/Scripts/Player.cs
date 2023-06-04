@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     Rigidbody rb;
 
-    int taskCapacity = 0;
+    public int taskCapacity = 3;
     public List<Task> tasks = new List<Task>();
 
 
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         Grounded();
         interactControll();
 
-
+        
 
 
 

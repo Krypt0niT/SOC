@@ -34,6 +34,12 @@ public class Npc : MonoBehaviour
     }
     void symbolUpdate()
     {
+        symbol.gameObject.transform.LookAt(GameObject.FindObjectOfType<Player>().gameObject.transform);
+        symbol.gameObject.transform.rotation = Quaternion.Euler(
+            0,
+            symbol.gameObject.transform.rotation.eulerAngles.y + 180,
+            symbol.gameObject.transform.rotation.eulerAngles.z
+            );
         if (hasTask)
         {
             symbol.text = "?";
@@ -79,7 +85,7 @@ public class Npc : MonoBehaviour
         }
         if (!GameObject.FindAnyObjectByType<Player>().playerInteracting)
         {
-            GameObject.FindAnyObjectByType<MainUI>().HideBarShow();
+            GameObject.FindAnyObjectByType<MainUI>().TaskBarHide();
         }
     }
     
