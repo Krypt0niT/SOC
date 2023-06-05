@@ -26,7 +26,7 @@ public class TaskUI : MonoBehaviour
         if (tasks > taskWindows)
         {
             GameObject win = window;
-            win.GetComponent<RectTransform>().anchoredPosition = new Vector2(100, 980);
+            win.GetComponent<RectTransform>().anchoredPosition = new Vector2(100, 980 - (200 * taskWindows));
             
             Instantiate(win).transform.SetParent(GameObject.Find("PlayerTaskBarSpawner").gameObject.transform);
             
@@ -41,7 +41,7 @@ public class TaskUI : MonoBehaviour
             GameObject win = GameObject.FindGameObjectsWithTag("task")[i];
             Task task = player.tasks[i];
             win.transform.Find("PlayerTaskName").GetComponent<TextMeshProUGUI>().text = task.Name;
-           // win.transform.Find("PlayerTaskTimer").GetComponent<TextMeshProUGUI>().text = task.time[0] + " : " + task.time[1];
+            //win.transform.Find("PlayerTaskTimer").GetComponent<TextMeshProUGUI>().text = task.timeToFinish.ToString();
 
         }
     }

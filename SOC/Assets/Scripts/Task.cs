@@ -14,8 +14,8 @@ public class Task : MonoBehaviour
     public float money = 1.5f;
 
     [Header("Timer")]
-    public int[] timeToFinish = { 1, 0 };
-    public int[] time = { 0, 0 };
+    public int timeToFinish = 60;
+    public int time = 0;
 
 
 }
