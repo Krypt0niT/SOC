@@ -79,7 +79,6 @@ public class Npc : MonoBehaviour
                 }
                 else
                 {
-                    GameObject.FindAnyObjectByType<MainUI>().TaskBarHide();
                     interctiveText = conversation[interactiveIndex];
                 }
             }
