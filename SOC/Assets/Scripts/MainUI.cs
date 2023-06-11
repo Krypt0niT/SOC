@@ -115,6 +115,7 @@ public class MainUI : MonoBehaviour
     {
         if (player.taskCapacity <= player.tasks.Count) { return; }
         player.tasks.Add(player.getAimedObject().transform.parent.GetComponent<Task>());
+        
         TaskBarHide();
 
         player.getAimedObject().transform.parent.GetComponent<Task>().taken = true;
@@ -132,7 +133,10 @@ public class MainUI : MonoBehaviour
                 transportLocations.Add(GameObject.FindGameObjectsWithTag("transportLocation")[i]);
             }
         }
-        transportLocations[Random.Range(0, transportLocations.Count)].AddComponent<transportTask>();
+        GameObject TL = transportLocations[Random.Range(0, transportLocations.Count)];
+        TL.AddComponent<transportTask>();
+        TL.GetComponent<transportTask>().task = player.tasks[player.tasks.Count - 1];
+
         TaskBarHide();
 
         return;

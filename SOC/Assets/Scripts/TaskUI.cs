@@ -41,7 +41,7 @@ public class TaskUI : MonoBehaviour
             GameObject win = GameObject.FindGameObjectsWithTag("task")[i];
             Task task = player.tasks[i];
             win.transform.Find("PlayerTaskName").GetComponent<TextMeshProUGUI>().text = task.Name;
-            //win.transform.Find("PlayerTaskTimer").GetComponent<TextMeshProUGUI>().text = task.timeToFinish.ToString();
+            win.transform.Find("frame").transform.Find("PlayerTaskOther").GetComponent<TextMeshProUGUI>().text = task.other;
 
         }
     }
