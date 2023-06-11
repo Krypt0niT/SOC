@@ -47,6 +47,13 @@ public class MainUI : MonoBehaviour
         else { interactiveBar.SetActive(false); }
 
         npcInteractiveText();
+        if (!interactiveBar.active)
+        {
+            for (int i = 0; i < GameObject.FindObjectsOfType<Npc>().Length; i++)
+            {
+                GameObject.FindObjectsOfType<Npc>()[i].interactiveIndex = 0;
+            }
+        }
     }
     public void nextConvo()
     {
@@ -108,11 +115,12 @@ public class MainUI : MonoBehaviour
     {
         if (player.taskCapacity <= player.tasks.Count) { return; }
         player.tasks.Add(player.getAimedObject().transform.parent.GetComponent<Task>());
-
+        TaskBarHide();
 
         player.getAimedObject().transform.parent.GetComponent<Task>().taken = true;
         player.cameraRotation = true;
         player.playerInteracting = false;
+        
 
         //priradenie tasku pre nahodny objekt ktory tento script este nema
 
@@ -125,6 +133,7 @@ public class MainUI : MonoBehaviour
             }
         }
         transportLocations[Random.Range(0, transportLocations.Count)].AddComponent<transportTask>();
+        TaskBarHide();
 
         return;
     }

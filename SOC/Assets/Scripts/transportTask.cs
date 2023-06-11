@@ -20,7 +20,8 @@ public class transportTask : MonoBehaviour
         place0 = this.GetComponent<transportInfo>().plate0;
         place1 = this.GetComponent<transportInfo>().plate1;
         numberOfCrates = Random.Range(1,5);
-        Instantiate(this.GetComponent<transportInfo>().boxesGameobject).transform.parent = this.gameObject.transform.Find("transportLocation0");
+        Instantiate(this.GetComponent<transportInfo>().boxesGameobject).transform.parent 
+            = this.gameObject.transform.Find("transportLocation0");
 
 
 

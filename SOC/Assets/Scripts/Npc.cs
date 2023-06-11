@@ -31,6 +31,7 @@ public class Npc : MonoBehaviour
         taskFinder();
         convoChange();
         symbolUpdate();
+     
     }
     void symbolUpdate()
     {
@@ -76,6 +77,7 @@ public class Npc : MonoBehaviour
                     {
                         GameObject.FindAnyObjectByType<MainUI>().TaskBarShow();
                     }
+                    
                 }
                 else
                 {
