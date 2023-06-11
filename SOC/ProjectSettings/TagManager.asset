@@ -7,6 +7,9 @@ TagManager:
   - npc
   - range
   - task
+  - transportLocation
+  - box
+  - boxes
   layers:
   - Default
   - TransparentFX

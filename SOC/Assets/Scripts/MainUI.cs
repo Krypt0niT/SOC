@@ -113,7 +113,19 @@ public class MainUI : MonoBehaviour
         player.getAimedObject().transform.parent.GetComponent<Task>().taken = true;
         player.cameraRotation = true;
         player.playerInteracting = false;
-        
+
+        //priradenie tasku pre nahodny objekt ktory tento script este nema
+
+        List <GameObject> transportLocations = new List<GameObject>();
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("transportLocation").Length; i++)
+        {
+            if (GameObject.FindGameObjectsWithTag("transportLocation")[i].GetComponent<transportTask>() == null)
+            {
+                transportLocations.Add(GameObject.FindGameObjectsWithTag("transportLocation")[i]);
+            }
+        }
+        transportLocations[Random.Range(0, transportLocations.Count)].AddComponent<transportTask>();
+
         return;
     }
     void playerInteractText()
