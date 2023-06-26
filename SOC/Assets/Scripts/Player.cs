@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         myInput();
         Grounded();
         interactControll();
-
+        taskTimeControll();
         
 
 
@@ -137,5 +137,9 @@ public class Player : MonoBehaviour
             return null;
         }
 
+    }
+    void taskTimeControll()
+    {
+        GameObject.FindObjectOfType<MainUI>().LoseTask();
     }
 }

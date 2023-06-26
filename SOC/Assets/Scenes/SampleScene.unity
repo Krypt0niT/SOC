@@ -2066,7 +2066,7 @@ MonoBehaviour:
   completed: 0
   paid: 1
   money: 1.5
-  timeToFinish: 30
+  timeToFinish: 200
   time: 0
   other: 
 --- !u!114 &403777284
@@ -2531,7 +2531,7 @@ MonoBehaviour:
   completed: 0
   paid: 1
   money: 1.5
-  timeToFinish: 70
+  timeToFinish: 10
   time: 0
   other: 
 --- !u!114 &461219412

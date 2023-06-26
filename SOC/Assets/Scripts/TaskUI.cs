@@ -11,7 +11,7 @@ public class TaskUI : MonoBehaviour
 
  
 
-    [SerializeField] GameObject window;
+    public GameObject window;
 
     private void Start()
     {
@@ -26,22 +26,39 @@ public class TaskUI : MonoBehaviour
         if (tasks > taskWindows)
         {
             GameObject win = window;
-            win.GetComponent<RectTransform>().anchoredPosition = new Vector2(100, 980 - (200 * taskWindows));
-            
             Instantiate(win).transform.SetParent(GameObject.Find("PlayerTaskBarSpawner").gameObject.transform);
             
         }
+        if ( tasks == taskWindows)
+        {
+            if (tasks != 0)
+            {
+                GameObject[] win = GameObject.FindGameObjectsWithTag("task");
+                for (int i = 0; i < win.Length; i++)
+                {
+                    win[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -100 - (i * 200));
+
+                }
+            }
+            
+
+        }
+
         updateWindows();
 
     }
     void updateWindows()
     {
+        if (GameObject.FindGameObjectsWithTag("task").Length != player.tasks.Count) { return; }
         for (int i = 0; i < taskWindows; i++)
         {
             GameObject win = GameObject.FindGameObjectsWithTag("task")[i];
             Task task = player.tasks[i];
             win.transform.Find("PlayerTaskName").GetComponent<TextMeshProUGUI>().text = task.Name;
             win.transform.Find("frame").transform.Find("PlayerTaskOther").GetComponent<TextMeshProUGUI>().text = task.other;
+
+      
+
 
             //time
             int secs = 0;
@@ -62,8 +79,13 @@ public class TaskUI : MonoBehaviour
             else
             {
                 win.transform.Find("frame").transform.Find("PlayerTaskTimer").GetComponent<TextMeshProUGUI>().text = mins + " : " + secs;
+
             }
 
+
+
         }
+
     }
+    
 }

@@ -24,7 +24,6 @@ public class Manager : MonoBehaviour
         {
             if (!tasks[i].taken) { continue; }
             tasks[i].time--;
-            print(tasks[i].time);
         }
     }
 }

@@ -8,6 +8,7 @@ public class Task : MonoBehaviour
     public string Name = "Prenos krabíc";
     public bool taken = false;
     public bool completed = false;
+    public bool failed = false;
 
     [Header("Ecomomy")]
     public bool paid = true;
@@ -23,5 +24,13 @@ public class Task : MonoBehaviour
     {
         time = timeToFinish;
     }
+    private void Update()
+    {
+        if (failed)
+        {
+            Destroy(this);
+        }
+    }
+
 
 }

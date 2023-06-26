@@ -145,6 +145,31 @@ public class MainUI : MonoBehaviour
 
         return;
     }
+    public void LoseTask()
+    {
+        List<Task> tasks = GameObject.FindAnyObjectByType<Player>().tasks;
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            
+            if (tasks[i].time <= 0)
+            {
+                for (int j = 0; j < GameObject.FindGameObjectsWithTag("task").Length; j++)
+                {
+                    if(GameObject.FindGameObjectsWithTag("task")[j]
+                        .transform.Find("PlayerTaskName").GetComponent<TextMeshProUGUI>().text == tasks[i].Name)
+                    {
+                        Destroy(GameObject.FindGameObjectsWithTag("task")[j]); 
+                        tasks[i].failed = true;
+                    }
+
+
+                }
+
+                player.tasks.Remove(tasks[i]);
+                
+            }
+        }
+    }
     void playerInteractText()
     {
 
