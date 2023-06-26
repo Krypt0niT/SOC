@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 169710677}
   - component: {fileID: 169710676}
   m_Layer: 5
-  m_Name: TaskBar
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   orientation: {fileID: 468407329}
   playerInteracting: 0
   cameraRotation: 1
-  taskCapacity: 3
+  taskCapacity: 5
   tasks: []
 --- !u!1 &283465910
 GameObject:
@@ -2068,6 +2068,7 @@ MonoBehaviour:
   money: 1.5
   timeToFinish: 30
   time: 0
+  other: 
 --- !u!114 &403777284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,8 +2531,9 @@ MonoBehaviour:
   completed: 0
   paid: 1
   money: 1.5
-  timeToFinish: 60
+  timeToFinish: 70
   time: 0
+  other: 
 --- !u!114 &461219412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3617,6 +3619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791374450}
   - component: {fileID: 791374449}
+  - component: {fileID: 791374451}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3654,6 +3657,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791374451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791374448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4849db2097a393c4aa129211b8a9ff76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskTimeCounter: 1
 --- !u!1001 &824215622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5411,7 +5427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1357194110}
   m_Layer: 5
-  m_Name: TaskBarTake
+  m_Name: TaskBarState0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5583,7 +5599,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1362518248
 RectTransform:
@@ -6135,8 +6151,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1362518248}
   - {fileID: 521982536}
+  - {fileID: 1362518248}
   - {fileID: 1430851940}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -7395,7 +7411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097227241}
   m_Layer: 5
-  m_Name: TaskBarTaken
+  m_Name: TaskBarState1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

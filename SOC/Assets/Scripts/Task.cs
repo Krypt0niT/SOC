@@ -19,5 +19,9 @@ public class Task : MonoBehaviour
 
     public string other ="";
 
+    private void Start()
+    {
+        time = timeToFinish;
+    }
 
 }

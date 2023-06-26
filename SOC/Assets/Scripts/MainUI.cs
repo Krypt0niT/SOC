@@ -21,17 +21,22 @@ public class MainUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<Player>();
+
+
+
         interactionDebug = GameObject.Find("interaction").GetComponent<TextMeshProUGUI>();
         interactiveText = GameObject.Find("interactiveText").GetComponent<TextMeshProUGUI>();
         interactiveName = GameObject.Find("interactiveName").GetComponent<TextMeshProUGUI>();
         crosshair = GameObject.Find("crosshair");
+
         interactiveBar = GameObject.Find("interactiveBar");
         TaskBar = GameObject.Find("TaskBar");
         TaskText = GameObject.Find("TaskText").GetComponent<TextMeshProUGUI>();
-        TaskBar.SetActive(false);
-        TaskBarTake = TaskBar.transform.Find("TaskBarTake").gameObject;
-        TaskBarTaken = TaskBar.transform.Find("TaskBarTaken").gameObject;
-        player = GameObject.FindObjectOfType<Player>();
+        
+        TaskBarTake = GameObject.Find("TaskBarState0").gameObject;
+        TaskBarTaken = GameObject.Find("TaskBarState1").gameObject;
+        
     }
 
     // Update is called once per frame
@@ -39,7 +44,6 @@ public class MainUI : MonoBehaviour
     {
         playerInteractText();
 
-        
         if (player.cameraRotation) { crosshair.SetActive(true); }
         else { crosshair.SetActive(false); }
 
@@ -61,7 +65,7 @@ public class MainUI : MonoBehaviour
             .transform.parent.GetComponent<Npc>();
         if (!info.hasTask)
         {
-            TaskBar.SetActive(false);
+            TaskBarHide();
             if (info.conversation.Count - 1 > info.interactiveIndex)
             {
                 info.interactiveIndex++;
