@@ -36,6 +36,10 @@ public class Boxes : MonoBehaviour
         }
         if (transportTask.GetComponent<transportTask>().numberOfCrates == 0)
         {
+            foreach (Transform child in this.gameObject.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
             return;
         }
         

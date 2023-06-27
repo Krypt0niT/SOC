@@ -9,6 +9,7 @@ public class transportTask : MonoBehaviour
 
 
     public int numberOfCrates;
+    public int MaxNumberOfCrates;
     int cratesDone = 0;
     public Task task;
     GameObject boxesGameobject;
@@ -19,7 +20,8 @@ public class transportTask : MonoBehaviour
     {
         place0 = this.GetComponent<transportInfo>().plate0;
         place1 = this.GetComponent<transportInfo>().plate1;
-        numberOfCrates = Random.Range(1,5);
+        MaxNumberOfCrates = Random.Range(1,5);
+        numberOfCrates = MaxNumberOfCrates;
 
         Instantiate(this.GetComponent<transportInfo>().boxesGameobject).transform.parent 
             = this.gameObject.transform.Find("transportLocation0");
@@ -32,7 +34,7 @@ public class transportTask : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        task.other = cratesDone.ToString() + " / " + numberOfCrates.ToString();
+        task.other = cratesDone.ToString() + " / " + MaxNumberOfCrates.ToString();
     }
     
 }

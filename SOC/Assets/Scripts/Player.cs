@@ -156,7 +156,8 @@ public class Player : MonoBehaviour
                 print("klikam na box");
                 if (carring) { return; }
                 carringObj = obj;
-
+                obj.transform.parent.transform.parent.transform.parent.gameObject.GetComponent<transportTask>().numberOfCrates--;
+                Instantiate(obj).transform.parent = this.gameObject.transform;
             }
         }
 
