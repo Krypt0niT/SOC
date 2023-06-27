@@ -179,22 +179,11 @@ public class MainUI : MonoBehaviour
         {
             return;
         }
-        if(target.transform.parent.GetComponent<Npc>() == null)
-        {
-            return;
-        }
-        if (!target.transform.parent.GetComponent<Npc>().playerInRange)
-        {
-            return;
-        }
-        if (!target.transform.parent.GetComponent<Npc>().interactable)
-        {
-            return; 
-        }
-        if (target.tag != "npc")
-        {
-            return;
-        }
+        if(target.transform.parent == null) { return; }
+        if(target.transform.parent.GetComponent<Npc>() == null) { return; }
+        if (!target.transform.parent.GetComponent<Npc>().playerInRange) { return; }
+        if (!target.transform.parent.GetComponent<Npc>().interactable) { return; }
+        if (target.tag != "npc") { return; }
 
         //pokial iteraguje
         if (GameObject.Find("Player").GetComponent<Player>().playerInteracting) { return; }

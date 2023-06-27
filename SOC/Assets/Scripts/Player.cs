@@ -97,12 +97,13 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(settings.interactKey))
         {
+            GameObject obj = getAimedObject();
 
-            if (getAimedObject() == null) { return; }
-            if (getAimedObject().transform.parent.GetComponent<Npc>() == null) { return; }
-            if (!getAimedObject().transform.parent.GetComponent<Npc>().playerInRange) { return; }
-            if (!getAimedObject().transform.parent.GetComponent<Npc>().interactable) { return; }
-            if (getAimedObject().tag != "npc") { return; }
+            if (obj == null) { return; }
+            if (obj.transform.parent.GetComponent<Npc>() == null) { return; }
+            if (!obj.transform.parent.GetComponent<Npc>().playerInRange) { return; }
+            if (!obj.transform.parent.GetComponent<Npc>().interactable) { return; }
+            if (obj.tag != "npc") { return; }
             if (!playerInteracting) 
             {
                 cameraRotation = false;
@@ -113,8 +114,7 @@ public class Player : MonoBehaviour
             {
                 cameraRotation = true;
                 playerInteracting = false;
-                GameObject.Find("Player").GetComponent<Player>().getAimedObject()
-                    .transform.parent.GetComponent<Npc>().interactiveIndex = 0;
+                obj.transform.parent.GetComponent<Npc>().interactiveIndex = 0;
             }
         }
     }
@@ -156,8 +156,18 @@ public class Player : MonoBehaviour
                 print("klikam na box");
                 if (carring) { return; }
                 carringObj = obj;
-                obj.transform.parent.transform.parent.transform.parent.gameObject.GetComponent<transportTask>().numberOfCrates--;
-                Instantiate(obj).transform.parent = this.gameObject.transform;
+                carring = true;
+                obj.transform.parent.transform.parent.transform.parent.transform.parent.gameObject.GetComponent<transportTask>().numberOfCrates--;
+                Instantiate(obj).transform.parent = this.gameObject.transform.Find("orientation").transform;
+            }
+        }
+        if(carring)
+        {
+            
+            foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
+            {
+                child.transform.localPosition = new Vector3(0, 0.24f, 0.3f);
+                child.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
 
