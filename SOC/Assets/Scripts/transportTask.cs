@@ -25,6 +25,7 @@ public class transportTask : MonoBehaviour
 
         Instantiate(this.GetComponent<transportInfo>().boxesGameobject).transform.parent 
             = this.gameObject.transform.Find("transportLocation0");
+        
 
 
 

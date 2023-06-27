@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     //box task
     bool carring = false;
-    GameObject carringObj = null;
+    public GameObject carringObj = null;
 
 
     private void Start()
@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
             GameObject obj = getAimedObject();
 
             if (obj == null) { return; }
+            if (obj.transform.parent == null) { return; }
             if (obj.transform.parent.GetComponent<Npc>() == null) { return; }
             if (!obj.transform.parent.GetComponent<Npc>().playerInRange) { return; }
             if (!obj.transform.parent.GetComponent<Npc>().interactable) { return; }
@@ -120,7 +121,7 @@ public class Player : MonoBehaviour
     }
     public GameObject getAimedObject()
     {
-        LayerMask layerMask = LayerMask.GetMask("NPCs","boxes");
+        LayerMask layerMask = LayerMask.GetMask("NPCs","boxes","boxPlates");
         // Vytvoríme raycast z kamery na stred obrazovky
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         RaycastHit hit;
@@ -153,12 +154,34 @@ public class Player : MonoBehaviour
             if(obj == null) { return; }
             if(obj.gameObject.tag == "box")
             {
-                print("klikam na box");
                 if (carring) { return; }
-                carringObj = obj;
+                
                 carring = true;
                 obj.transform.parent.transform.parent.transform.parent.transform.parent.gameObject.GetComponent<transportTask>().numberOfCrates--;
                 Instantiate(obj).transform.parent = this.gameObject.transform.Find("orientation").transform;
+                foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
+                {
+                    carringObj = child.gameObject;
+                }
+            }
+            if(obj.gameObject.tag == "boxPlate")
+            {
+
+                if (!carring) { return; }
+
+                if (carringObj == null) { return; }
+
+                if (carringObj.tag != "box") { return; }
+
+                carringObj = null;
+                carring = false;
+                obj.transform.parent.transform.parent.gameObject.GetComponent<transportTask>().numberOfCrates++;
+                foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+                
+
             }
         }
         if(carring)
@@ -168,6 +191,7 @@ public class Player : MonoBehaviour
             {
                 child.transform.localPosition = new Vector3(0, 0.24f, 0.3f);
                 child.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                child.gameObject.layer = 0;
             }
         }
 

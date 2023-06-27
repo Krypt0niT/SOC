@@ -240,9 +240,9 @@ GameObject:
   - component: {fileID: 67638166}
   - component: {fileID: 67638165}
   - component: {fileID: 67638164}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -453,9 +453,9 @@ GameObject:
   - component: {fileID: 158848343}
   - component: {fileID: 158848342}
   - component: {fileID: 158848341}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,9 +737,9 @@ GameObject:
   - component: {fileID: 184638671}
   - component: {fileID: 184638670}
   - component: {fileID: 184638669}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1203,6 +1203,7 @@ MonoBehaviour:
   cameraRotation: 1
   taskCapacity: 5
   tasks: []
+  carringObj: {fileID: 0}
 --- !u!1 &283465910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,9 +1351,9 @@ GameObject:
   - component: {fileID: 316758642}
   - component: {fileID: 316758641}
   - component: {fileID: 316758640}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1777,9 +1778,9 @@ GameObject:
   - component: {fileID: 355736422}
   - component: {fileID: 355736421}
   - component: {fileID: 355736420}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4151,9 +4152,9 @@ GameObject:
   - component: {fileID: 910390295}
   - component: {fileID: 910390294}
   - component: {fileID: 910390293}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4665,9 +4666,9 @@ GameObject:
   - component: {fileID: 1104636148}
   - component: {fileID: 1104636147}
   - component: {fileID: 1104636146}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6595,9 +6596,9 @@ GameObject:
   - component: {fileID: 1764863333}
   - component: {fileID: 1764863332}
   - component: {fileID: 1764863331}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plate
-  m_TagString: Untagged
+  m_TagString: boxPlate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
