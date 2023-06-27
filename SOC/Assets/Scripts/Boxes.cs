@@ -30,6 +30,14 @@ public class Boxes : MonoBehaviour
         
         
         gameObject.transform.localPosition = new Vector3(0,0,0);
+        foreach (Transform child in this.gameObject.transform)
+        {
+            child.transform.localPosition = new Vector3(0,0,0);
+        }
+        if (transportTask.GetComponent<transportTask>().numberOfCrates == 0)
+        {
+            return;
+        }
         
         if (transportTask.GetComponent<transportTask>().numberOfCrates != int.Parse(split[1]))
         {

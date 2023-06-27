@@ -29,7 +29,9 @@ public class Player : MonoBehaviour
     public int taskCapacity = 3;
     public List<Task> tasks = new List<Task>();
 
-
+    //box task
+    bool carring = false;
+    GameObject carringObj = null;
 
 
     private void Start()
@@ -48,7 +50,8 @@ public class Player : MonoBehaviour
         Grounded();
         interactControll();
         taskTimeControll();
-        
+
+        boxCarring();
 
 
 
@@ -117,7 +120,7 @@ public class Player : MonoBehaviour
     }
     public GameObject getAimedObject()
     {
-        LayerMask layerMask = LayerMask.GetMask("NPCs");
+        LayerMask layerMask = LayerMask.GetMask("NPCs","boxes");
         // Vytvoríme raycast z kamery na stred obrazovky
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         RaycastHit hit;
@@ -141,5 +144,21 @@ public class Player : MonoBehaviour
     void taskTimeControll()
     {
         GameObject.FindObjectOfType<MainUI>().LoseTask();
+    }
+    void boxCarring()
+    {
+        if (Input.GetKeyDown(settings.interactKey))
+        {
+            GameObject obj = getAimedObject();
+            if(obj == null) { return; }
+            if(obj.gameObject.tag == "box")
+            {
+                print("klikam na box");
+                if (carring) { return; }
+                carringObj = obj;
+
+            }
+        }
+
     }
 }

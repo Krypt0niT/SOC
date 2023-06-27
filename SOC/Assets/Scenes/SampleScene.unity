@@ -1739,7 +1739,6 @@ MonoBehaviour:
   m_Dithering: 0
   m_ClearDepth: 1
   m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
   m_UseScreenCoordOverride: 0
   m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
@@ -2064,6 +2063,7 @@ MonoBehaviour:
   Name: Prenos veci
   taken: 0
   completed: 0
+  failed: 0
   paid: 1
   money: 1.5
   timeToFinish: 200
@@ -2529,6 +2529,7 @@ MonoBehaviour:
   Name: "Prenos krab\xEDc"
   taken: 0
   completed: 0
+  failed: 0
   paid: 1
   money: 1.5
   timeToFinish: 10
@@ -3333,7 +3334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &682500320
 MeshRenderer:
   m_ObjectHideFlags: 0
