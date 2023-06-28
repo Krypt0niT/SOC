@@ -7,6 +7,7 @@ public class Boxes : MonoBehaviour
     GameObject transportTask;
     GameObject boxes;
     List<GameObject> crates;
+    public int type;
 
     private void Start()
     {
@@ -15,44 +16,84 @@ public class Boxes : MonoBehaviour
         
         transportTask = this.gameObject.transform.parent.transform.parent.gameObject;
         crates = transportTask.GetComponent<transportInfo>().crates;
-        boxes = crates[transportTask.GetComponent<transportTask>().numberOfCrates - 1];
-        Instantiate(boxes).transform.SetParent(this.gameObject.transform);
+
+        if (type == 0)
+        {
+            boxes = crates[transportTask.GetComponent<transportTask>().numberOfCrates0];
+            Instantiate(boxes).transform.SetParent(this.gameObject.transform);
+            print(boxes);
+        }
+        else if (type == 1)
+        {
+            if(transportTask.GetComponent<transportTask>().numberOfCrates1 - 1 < 0)
+            {
+                boxes = crates[0];
+                Instantiate(boxes).transform.SetParent(this.gameObject.transform);
+                return;
+            }
+            boxes = crates[transportTask.GetComponent<transportTask>().numberOfCrates1];
+            Instantiate(boxes).transform.SetParent(this.gameObject.transform);
+        }
+
 
     }
     private void Update()
     {
+     
         cratesNumber();
     }
     void cratesNumber()
     {
-        string[] split = boxes.name.Split('-');
+        if (boxes == null) return;
+        
+        string[] split = boxes.name.Split('-'); 
+        
+        
+        
 
-        
-        
-        gameObject.transform.localPosition = new Vector3(0,0,0);
-        foreach (Transform child in this.gameObject.transform)
+        if (type == 0)
         {
-            child.transform.localPosition = new Vector3(0,0,0);
-        }
-        if (transportTask.GetComponent<transportTask>().numberOfCrates == 0)
-        {
+            gameObject.transform.localPosition = new Vector3(0, 0, 0);
             foreach (Transform child in this.gameObject.transform)
             {
-                GameObject.Destroy(child.gameObject);
+                child.transform.localPosition = new Vector3(0, 0, 0);
             }
-            return;
+            
+
+            if (transportTask.GetComponent<transportTask>().numberOfCrates0 != int.Parse(split[1]))
+            {
+                foreach (Transform child in this.gameObject.transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+                boxes = crates[transportTask.GetComponent<transportTask>().numberOfCrates0];
+                Instantiate(boxes).transform.SetParent(this.gameObject.transform);
+
+
+            }
         }
-        
-        if (transportTask.GetComponent<transportTask>().numberOfCrates != int.Parse(split[1]))
+        else if (type == 1)
         {
+            gameObject.transform.localPosition = new Vector3(0, 0, 0);
             foreach (Transform child in this.gameObject.transform)
             {
-                GameObject.Destroy(child.gameObject);
+                child.transform.localPosition = new Vector3(0, 0, 0);
             }
-            boxes = crates[transportTask.GetComponent<transportTask>().numberOfCrates - 1];
-            Instantiate(boxes).transform.SetParent(this.gameObject.transform);
+            
+
+            if (transportTask.GetComponent<transportTask>().numberOfCrates1 != int.Parse(split[1]))
+            {
+                foreach (Transform child in this.gameObject.transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+                boxes = crates[transportTask.GetComponent<transportTask>().numberOfCrates1];
+                Instantiate(boxes).transform.SetParent(this.gameObject.transform);
 
 
+            }
         }
+        
+        
     }
 }

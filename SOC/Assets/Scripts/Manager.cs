@@ -6,6 +6,7 @@ public class Manager : MonoBehaviour
 {
     private float timeTick = 0;
     public bool taskTimeCounter = true;
+    public float playerMoney = 0;
     private void Update()
     {
         taskTimeUpdate();

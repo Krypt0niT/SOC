@@ -30,6 +30,15 @@ public class Task : MonoBehaviour
         {
             Destroy(this);
         }
+        if (completed)
+        {
+            if (paid)
+            {
+                GameObject.FindObjectOfType<Manager>().playerMoney += money;
+            }
+
+            Destroy(this);
+        }
     }
 
 

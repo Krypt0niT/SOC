@@ -17,6 +17,8 @@ public class MainUI : MonoBehaviour
     GameObject TaskBarTake;
     GameObject TaskBarTaken;
 
+    TextMeshProUGUI MoneyText;
+
     Player player;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,10 @@ public class MainUI : MonoBehaviour
         
         TaskBarTake = GameObject.Find("TaskBarState0").gameObject;
         TaskBarTaken = GameObject.Find("TaskBarState1").gameObject;
-        
+
+        MoneyText = GameObject.Find("MoneyText").GetComponent<TextMeshProUGUI>();
+
+
     }
 
     // Update is called once per frame
@@ -58,6 +63,7 @@ public class MainUI : MonoBehaviour
                 GameObject.FindObjectsOfType<Npc>()[i].interactiveIndex = 0;
             }
         }
+        MoneyText.text = GameObject.FindObjectOfType<Manager>().playerMoney.ToString() + "€";
     }
     public void nextConvo()
     {

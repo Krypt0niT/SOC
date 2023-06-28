@@ -157,7 +157,16 @@ public class Player : MonoBehaviour
                 if (carring) { return; }
                 
                 carring = true;
-                obj.transform.parent.transform.parent.transform.parent.transform.parent.gameObject.GetComponent<transportTask>().numberOfCrates--;
+                if (obj.transform.parent.parent.GetComponent<Boxes>().type == 0)
+                {
+                    obj.transform.parent.parent.parent.parent.gameObject.GetComponent<transportTask>().numberOfCrates0--;
+
+                }
+                else if (obj.transform.parent.parent.GetComponent<Boxes>().type == 1)
+                {
+                    obj.transform.parent.parent.parent.parent.GetComponent<transportTask>().numberOfCrates1--;
+
+                }
                 Instantiate(obj).transform.parent = this.gameObject.transform.Find("orientation").transform;
                 foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
                 {
@@ -173,13 +182,27 @@ public class Player : MonoBehaviour
 
                 if (carringObj.tag != "box") { return; }
 
-                carringObj = null;
-                carring = false;
-                obj.transform.parent.transform.parent.gameObject.GetComponent<transportTask>().numberOfCrates++;
-                foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
+                
+                if(obj.transform.parent.transform.parent.gameObject.GetComponent<transportTask>() != null)
                 {
-                    GameObject.Destroy(child.gameObject);
+                    carringObj = null;
+                    carring = false;
+                    if (obj.transform.parent.GetComponentInChildren<Boxes>().type == 0)
+                    {
+                        obj.transform.parent.parent.GetComponent<transportTask>().numberOfCrates0++;
+
+                    }
+                    else if (obj.transform.parent.GetComponentInChildren<Boxes>().type == 1)
+                    {
+                        obj.transform.parent.parent.GetComponent<transportTask>().numberOfCrates1++;
+
+                    }
+                    foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
+                    {
+                        GameObject.Destroy(child.gameObject);
+                    }
                 }
+                
                 
 
             }
