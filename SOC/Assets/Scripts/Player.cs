@@ -150,13 +150,21 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(settings.interactKey))
         {
+            
             GameObject obj = getAimedObject();
             if(obj == null) { return; }
-            if(obj.gameObject.tag == "box")
+            
+
+            if (obj.gameObject.tag == "box")
             {
                 if (carring) { return; }
-                
-                carring = true;
+                //kontrola nachadzania sa v range
+                if (obj.transform.parent.parent.parent.parent.gameObject.GetComponent<transportTask>().playerInRange !=
+                    obj.gameObject.transform.parent.parent.parent.gameObject) { return; }
+
+
+
+                    carring = true;
                 if (obj.transform.parent.parent.GetComponent<Boxes>().type == 0)
                 {
                     obj.transform.parent.parent.parent.parent.gameObject.GetComponent<transportTask>().numberOfCrates0--;
@@ -181,9 +189,12 @@ public class Player : MonoBehaviour
                 if (carringObj == null) { return; }
 
                 if (carringObj.tag != "box") { return; }
+                if (obj.transform.parent.parent.gameObject.GetComponent<transportTask>() == null) return;
+                if (obj.transform.parent.parent.gameObject.GetComponent<transportTask>().playerInRange !=
+                    obj.gameObject.transform.parent.gameObject) { return; }
 
-                
-                if(obj.transform.parent.transform.parent.gameObject.GetComponent<transportTask>() != null)
+
+                if (obj.transform.parent.transform.parent.gameObject.GetComponent<transportTask>() != null)
                 {
                     carringObj = null;
                     carring = false;

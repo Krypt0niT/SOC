@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class transportTask : MonoBehaviour
 {
@@ -14,7 +15,10 @@ public class transportTask : MonoBehaviour
     int cratesDone = 0;
     public Task task;
     GameObject boxesGameobject;
+    public GameObject playerInRange = null;
 
+    TextMeshPro info0;
+    TextMeshPro info1;
     
 
     void Start()
@@ -22,9 +26,14 @@ public class transportTask : MonoBehaviour
         place0 = this.GetComponent<transportInfo>().plate0;
         place1 = this.GetComponent<transportInfo>().plate1;
         MaxNumberOfCrates = Random.Range(2,5);
-        print(MaxNumberOfCrates);
         numberOfCrates0 = MaxNumberOfCrates;
         numberOfCrates1 = 0;
+
+        info0 = this.gameObject.transform.Find("transportLocation0").transform.Find("Info").gameObject.GetComponent<TextMeshPro>();
+        info1 = this.gameObject.transform.Find("transportLocation1").transform.Find("Info").gameObject.GetComponent<TextMeshPro>();
+
+        info0.enabled = true;
+        info1.enabled = true;
 
         GameObject gObj = this.GetComponent<transportInfo>().boxesGameobject;
 
@@ -49,6 +58,7 @@ public class transportTask : MonoBehaviour
     {
         task.other = cratesDone.ToString() + " / " + MaxNumberOfCrates.ToString();
         finnishControll();
+        textUpdate();
     }
     void finnishControll()
     {
@@ -59,8 +69,35 @@ public class transportTask : MonoBehaviour
             Destroy(this.gameObject.transform.Find("transportLocation1").GetComponentInChildren<Boxes>().gameObject);
             task.gameObject.GetComponent<Npc>().interactable = false;
 
+            info0.enabled = false;
+            info1.enabled = false;
 
             Destroy(this);
         }
+    }
+    void textUpdate()
+    {
+        info0.gameObject.transform.LookAt(GameObject.FindObjectOfType<Player>().gameObject.transform);
+        info0.gameObject.transform.rotation = Quaternion.Euler(
+            0,
+            info0.gameObject.transform.rotation.eulerAngles.y + 180,
+            info0.gameObject.transform.rotation.eulerAngles.z
+            );
+
+        //------------
+
+        info1.gameObject.transform.LookAt(GameObject.FindObjectOfType<Player>().gameObject.transform);
+        info1.gameObject.transform.rotation = Quaternion.Euler(
+            0,
+            info1.gameObject.transform.rotation.eulerAngles.y + 180,
+            info1.gameObject.transform.rotation.eulerAngles.z
+            );
+
+        // info
+        info1.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to pick up.";
+        info1.text += "<br>Boxes left: " + numberOfCrates0;
+
+        info0.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to put down.";
+        info0.text += "<br>" + numberOfCrates1 + "/" + MaxNumberOfCrates;
     }
 }

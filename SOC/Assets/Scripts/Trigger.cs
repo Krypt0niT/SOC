@@ -8,14 +8,29 @@ public class Trigger : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            transform.parent.GetComponent<Npc>().playerInRange = true;
+            if(this.gameObject.transform.parent.GetComponent<Npc>() != null)
+            {
+                transform.parent.GetComponent<Npc>().playerInRange = true;
+
+            }
+            if (this.gameObject.transform.parent.parent.GetComponent<transportTask>() != null)
+            {
+                this.gameObject.transform.parent.parent.GetComponent<transportTask>().playerInRange = this.transform.parent.gameObject;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
-            transform.parent.GetComponent<Npc>().playerInRange = false;
+            if (this.gameObject.transform.parent.GetComponent<Npc>() != null)
+            {
+                transform.parent.GetComponent<Npc>().playerInRange = false;
+            }
+            if (this.gameObject.transform.parent.parent.GetComponent<transportTask>() != null)
+            {
+                this.gameObject.transform.parent.parent.GetComponent<transportTask>().playerInRange = null;
+            }
         }
     }
 }

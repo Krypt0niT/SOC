@@ -21,7 +21,6 @@ public class Boxes : MonoBehaviour
         {
             boxes = crates[transportTask.GetComponent<transportTask>().numberOfCrates0];
             Instantiate(boxes).transform.SetParent(this.gameObject.transform);
-            print(boxes);
         }
         else if (type == 1)
         {
