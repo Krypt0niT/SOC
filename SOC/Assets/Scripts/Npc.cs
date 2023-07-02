@@ -113,6 +113,10 @@ public class Npc : MonoBehaviour
         {
             if (!hasTask)
             {
+                if(interactiveIndex > conversation.Count - 1)
+                {
+                    return;
+                }
                 interctiveText = conversation[interactiveIndex];
             }
             else

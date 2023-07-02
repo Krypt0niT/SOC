@@ -195,13 +195,20 @@ public class MainUI : MonoBehaviour
         player.hideInteractiveBar();
         player.tasks.Remove(player.getAimedObject().transform.parent.GetComponent<Task>());
         player.getAimedObject().transform.parent.GetComponent<Task>().gameObject.GetComponent<Npc>().interactable = false;
-        /*
-        Destroy(GameObject.FindGameObjectsWithTag("task")[j]);
-        tasks[i].failed = true;
-        player.tasks.Remove(tasks[i]);
-        */
+        
 
-
+    }
+    public void finishTask()
+    {
+        player.getAimedObject();
+        transportTask[] transports = GameObject.FindObjectsOfType<transportTask>();
+        for (int i = 0; i < transports.Length; i++)
+        {
+            if (transports[i].task == player.getAimedObject().transform.parent.GetComponent<Task>())
+            {
+                transports[i].finnishControll();
+            }
+        }
     }
     void playerInteractText()
     {

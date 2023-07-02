@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5784543, g: 0.6157293, b: 0.6087265, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3082,7 +3082,7 @@ MonoBehaviour:
     \u0161koly.Ak sa c\xEDti\u0161 straten\xFD alebo potrebuje\u0161 radu, v\u017Edy
     ma tu n\xE1jde\u0161.Nech \u017Eiari tvoje vzdelanie v tejto simul\xE1cii!"
   agent: {fileID: 493521641}
-  range: 3
+  range: 0
   centrePoint: {fileID: 493521643}
 --- !u!4 &493521643
 Transform:
@@ -3091,8 +3091,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493521640}
-  m_LocalRotation: {x: -0, y: -0.21080162, z: -0, w: -0.97752887}
-  m_LocalPosition: {x: 4.219228, y: 0.06700337, z: -1.3307068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.71, y: 0, z: -1.5799999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3102,7 +3102,7 @@ Transform:
   - {fileID: 1987244015}
   m_Father: {fileID: 395906216}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 302.498, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507254649
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,7 +4480,7 @@ MonoBehaviour:
     materi\xE1l. Si na to?"
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
   agent: {fileID: 649202384}
-  range: 3
+  range: 0
   centrePoint: {fileID: 649202387}
 --- !u!4 &649202387
 Transform:
@@ -4489,8 +4489,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649202383}
-  m_LocalRotation: {x: -0, y: -0.30647933, z: -0, w: 0.95187736}
-  m_LocalPosition: {x: -5.622452, y: 0.06700337, z: -11.07642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.35, y: 0, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4500,7 +4500,7 @@ Transform:
   - {fileID: 1380138244}
   m_Father: {fileID: 395906216}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 302.498, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650826118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5202,7 +5202,7 @@ MonoBehaviour:
   interactiveIndex: 0
   conversation: []
   agent: {fileID: 764020235}
-  range: 3
+  range: 0
   centrePoint: {fileID: 764020237}
 --- !u!4 &764020237
 Transform:
@@ -5211,8 +5211,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764020234}
-  m_LocalRotation: {x: -0, y: -0.12323497, z: -0, w: -0.9923775}
-  m_LocalPosition: {x: -1.6284945, y: 0.06700337, z: 1.8391109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.15, y: 0, z: -1.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5222,7 +5222,7 @@ Transform:
   - {fileID: 1328526701}
   m_Father: {fileID: 395906216}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 302.498, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765749997
 GameObject:
   m_ObjectHideFlags: 0
@@ -6017,7 +6017,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 909835303}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1362518249}
+        m_TargetAssemblyTypeName: MainUI, Assembly-CSharp
+        m_MethodName: finishTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &909835303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11230,7 +11242,7 @@ MonoBehaviour:
     materi\xE1l. Si na to?"
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
   agent: {fileID: 1769705521}
-  range: 3
+  range: 0
   centrePoint: {fileID: 1769705524}
 --- !u!4 &1769705524
 Transform:
@@ -11239,8 +11251,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769705520}
-  m_LocalRotation: {x: -0, y: -0.75106233, z: -0, w: -0.6602313}
-  m_LocalPosition: {x: -10.018481, y: 0.06700337, z: -8.189277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5300002, y: 0, z: 0.23000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11250,7 +11262,7 @@ Transform:
   - {fileID: 1068836661}
   m_Father: {fileID: 395906216}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 383.718, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1789902696
 GameObject:
   m_ObjectHideFlags: 0

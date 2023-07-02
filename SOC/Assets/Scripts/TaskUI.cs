@@ -47,6 +47,20 @@ public class TaskUI : MonoBehaviour
         updateWindows();
 
     }
+    void destroyControll()
+    {
+        for (int i = 0; i < taskWindows; i++)
+        {
+            GameObject win = GameObject.FindGameObjectsWithTag("task")[i];
+            Task task = player.tasks[i];
+
+            if (task.completed || task.failed)
+            {
+                Destroy(win);
+                return;
+            }
+        }
+    }
     void updateWindows()
     {
         if (GameObject.FindGameObjectsWithTag("task").Length != player.tasks.Count) { return; }
@@ -54,6 +68,7 @@ public class TaskUI : MonoBehaviour
         {
             GameObject win = GameObject.FindGameObjectsWithTag("task")[i];
             Task task = player.tasks[i];
+            
             win.transform.Find("PlayerTaskName").GetComponent<TextMeshProUGUI>().text = task.Name;
             win.transform.Find("frame").transform.Find("PlayerTaskOther").GetComponent<TextMeshProUGUI>().text = task.other;
 

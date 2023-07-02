@@ -65,14 +65,23 @@ public class transportTask : MonoBehaviour
         
 
     }
-    void finnishControll()
+    public void finnishControll()
     {
         if (numberOfCrates1 == MaxNumberOfCrates)
         {
+            for (int i = 0; i < GameObject.FindObjectOfType<Player>().tasks.Count; i++)
+            {
+                if (GameObject.FindObjectOfType<Player>().getAimedObject().transform.parent.GetComponent<Task>().Name ==
+                    GameObject.FindGameObjectsWithTag("task")[i].transform.Find("PlayerTaskName").gameObject.GetComponent<TextMeshProUGUI>().text)
+                {
+                    Destroy(GameObject.FindGameObjectsWithTag("task")[i]);
+                }
+            }
             task.completed = true;
             Destroy(this.gameObject.transform.Find("transportLocation0").GetComponentInChildren<Boxes>().gameObject);
             Destroy(this.gameObject.transform.Find("transportLocation1").GetComponentInChildren<Boxes>().gameObject);
             task.gameObject.GetComponent<Npc>().interactable = false;
+            GameObject.FindObjectOfType<Player>().hideInteractiveBar();
 
             info0.enabled = false;
             info1.enabled = false;
