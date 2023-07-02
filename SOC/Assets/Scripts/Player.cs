@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     bool carring = false;
     public GameObject carringObj = null;
 
+    public float Slower = 1;
+
 
     private void Start()
     {
@@ -57,6 +59,14 @@ public class Player : MonoBehaviour
 
 
 
+        if (carring)
+        {
+            Slower = 2;
+        }
+        else
+        {
+            Slower = 1;
+        }
 
     }
     private void FixedUpdate()
@@ -81,8 +91,9 @@ public class Player : MonoBehaviour
     }
     private void movePLayer()
     {
+        float speed = PlayerSpeed / Slower;
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        rb.AddForce(moveDirection.normalized * PlayerSpeed * 10f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
     }
     private void speedControl()
     {
@@ -119,6 +130,13 @@ public class Player : MonoBehaviour
             }
         }
     }
+    public void hideInteractiveBar()
+    {
+      
+        cameraRotation = true;
+        playerInteracting = false;
+        
+    }
     public GameObject getAimedObject()
     {
         LayerMask layerMask = LayerMask.GetMask("NPCs","boxes","boxPlates");
@@ -144,7 +162,7 @@ public class Player : MonoBehaviour
     }
     void taskTimeControll()
     {
-        GameObject.FindObjectOfType<MainUI>().LoseTask();
+        GameObject.FindObjectOfType<MainUI>().LoseTaskTime();
     }
     void boxCarring()
     {
@@ -228,6 +246,8 @@ public class Player : MonoBehaviour
                 child.gameObject.layer = 0;
             }
         }
+       
+
 
     }
 }

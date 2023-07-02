@@ -154,7 +154,7 @@ public class MainUI : MonoBehaviour
 
         return;
     }
-    public void LoseTask()
+    public void LoseTaskTime()
     {
         List<Task> tasks = GameObject.FindAnyObjectByType<Player>().tasks;
         for (int i = 0; i < tasks.Count; i++)
@@ -169,6 +169,8 @@ public class MainUI : MonoBehaviour
                     {
                         Destroy(GameObject.FindGameObjectsWithTag("task")[j]); 
                         tasks[i].failed = true;
+                        tasks[i].gameObject.GetComponent<Npc>().interactable = false;
+
                     }
 
 
@@ -178,6 +180,28 @@ public class MainUI : MonoBehaviour
                 
             }
         }
+    }
+    public void LoseTask()
+    {
+        for (int i = 0; i < player.tasks.Count; i++)
+        {
+            if (player.getAimedObject().transform.parent.GetComponent<Task>().Name == 
+                GameObject.FindGameObjectsWithTag("task")[i].transform.Find("PlayerTaskName").gameObject.GetComponent<TextMeshProUGUI>().text)
+            {
+                Destroy(GameObject.FindGameObjectsWithTag("task")[i]);
+            }
+        }
+        player.getAimedObject().transform.parent.GetComponent<Task>().failed = true;
+        player.hideInteractiveBar();
+        player.tasks.Remove(player.getAimedObject().transform.parent.GetComponent<Task>());
+        player.getAimedObject().transform.parent.GetComponent<Task>().gameObject.GetComponent<Npc>().interactable = false;
+        /*
+        Destroy(GameObject.FindGameObjectsWithTag("task")[j]);
+        tasks[i].failed = true;
+        player.tasks.Remove(tasks[i]);
+        */
+
+
     }
     void playerInteractText()
     {

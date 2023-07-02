@@ -57,9 +57,13 @@ public class transportTask : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DestroyControll();
+
         task.other = cratesDone.ToString() + " / " + MaxNumberOfCrates.ToString();
         //finnishControll();
         textUpdate();
+        
+
     }
     void finnishControll()
     {
@@ -75,6 +79,17 @@ public class transportTask : MonoBehaviour
 
             Destroy(this);
         }
+    }
+    void DestroyControll()
+    {
+        if (task != null) return;
+        
+        Destroy(this.gameObject.transform.Find("transportLocation0").GetComponentInChildren<Boxes>().gameObject);   
+        Destroy(this.gameObject.transform.Find("transportLocation1").GetComponentInChildren<Boxes>().gameObject);
+
+        info0.enabled = false;
+        info1.enabled = false;
+        Destroy(this);
     }
     void textUpdate()
     {
