@@ -103,6 +103,9 @@ public class MainUI : MonoBehaviour
     public void TaskBarShow()
     {
         TaskBar.SetActive(true);
+        if (player.getAimedObject() == null) return;
+        if (player.getAimedObject().transform.parent == null) return;
+        if (player.getAimedObject().transform.parent.GetComponent<Task>() == null) return;
         Task task = player.getAimedObject().transform.parent.GetComponent<Task>();
 
         TaskText.text = task.Name;

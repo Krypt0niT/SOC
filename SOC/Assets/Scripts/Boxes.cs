@@ -40,6 +40,7 @@ public class Boxes : MonoBehaviour
     {
      
         cratesNumber();
+      
     }
     void cratesNumber()
     {

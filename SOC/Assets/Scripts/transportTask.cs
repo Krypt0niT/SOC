@@ -37,14 +37,15 @@ public class transportTask : MonoBehaviour
 
         GameObject gObj = this.GetComponent<transportInfo>().boxesGameobject;
 
-        Instantiate(gObj).transform.parent 
-            = this.gameObject.transform.Find("transportLocation0");
         gObj.GetComponent<Boxes>().type = 0;
 
+        Instantiate(gObj).transform.parent 
+            = this.gameObject.transform.Find("transportLocation0");
+
+        gObj.GetComponent<Boxes>().type = 1;
 
         Instantiate(gObj).transform.parent
             = this.gameObject.transform.Find("transportLocation1");
-        gObj.GetComponent<Boxes>().type = 1;
 
 
 
@@ -57,7 +58,7 @@ public class transportTask : MonoBehaviour
     void Update()
     {
         task.other = cratesDone.ToString() + " / " + MaxNumberOfCrates.ToString();
-        finnishControll();
+        //finnishControll();
         textUpdate();
     }
     void finnishControll()
@@ -94,10 +95,30 @@ public class transportTask : MonoBehaviour
             );
 
         // info
-        info1.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to pick up.";
-        info1.text += "<br>Boxes left: " + numberOfCrates0;
+        if(numberOfCrates0 > 0)
+        {
+            info0.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to pick up.";
+            info0.text += "<br>Boxes left: " + numberOfCrates0;
+        }
+        else
+        {
+            info0.text = "";
+        }
+        
 
-        info0.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to put down.";
-        info0.text += "<br>" + numberOfCrates1 + "/" + MaxNumberOfCrates;
+        if (GameObject.FindObjectOfType<Player>().carringObj != null)
+        {
+            info1.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to put down.";
+            info1.text += "<br>" + numberOfCrates1 + "/" + MaxNumberOfCrates;
+        }
+        else if (numberOfCrates1 == MaxNumberOfCrates)
+        {
+            info1.text = "COMPLETED!";
+        }
+        else
+        {
+            info1.text = "";
+        }
+        
     }
 }

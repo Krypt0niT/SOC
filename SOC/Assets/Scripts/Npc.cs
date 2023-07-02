@@ -47,7 +47,13 @@ public class Npc : MonoBehaviour
         taskFinder();
         convoChange();
         symbolUpdate();
+        movement();
 
+
+
+    }
+    void movement()
+    {
         if (agent.remainingDistance <= agent.stoppingDistance) //done with path
         {
             Vector3 point;
@@ -57,7 +63,6 @@ public class Npc : MonoBehaviour
                 agent.SetDestination(point);
             }
         }
-
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {

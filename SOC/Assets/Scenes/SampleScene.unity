@@ -3081,8 +3081,8 @@ MonoBehaviour:
     \u0161koly.Ak sa c\xEDti\u0161 straten\xFD alebo potrebuje\u0161 radu, v\u017Edy
     ma tu n\xE1jde\u0161.Nech \u017Eiari tvoje vzdelanie v tejto simul\xE1cii!"
   agent: {fileID: 493521641}
-  range: 20
-  centrePoint: {fileID: 832575519}
+  range: 3
+  centrePoint: {fileID: 493521643}
 --- !u!4 &493521643
 Transform:
   m_ObjectHideFlags: 0
@@ -4479,8 +4479,8 @@ MonoBehaviour:
     materi\xE1l. Si na to?"
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
   agent: {fileID: 649202384}
-  range: 20
-  centrePoint: {fileID: 832575519}
+  range: 3
+  centrePoint: {fileID: 649202387}
 --- !u!4 &649202387
 Transform:
   m_ObjectHideFlags: 0
@@ -5021,7 +5021,7 @@ GameObject:
   - component: {fileID: 762336350}
   - component: {fileID: 762336349}
   m_Layer: 5
-  m_Name: TaskButton
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5189,8 +5189,8 @@ MonoBehaviour:
   interactiveIndex: 0
   conversation: []
   agent: {fileID: 764020235}
-  range: 20
-  centrePoint: {fileID: 832575519}
+  range: 3
+  centrePoint: {fileID: 764020237}
 --- !u!4 &764020237
 Transform:
   m_ObjectHideFlags: 0
@@ -5934,7 +5934,7 @@ GameObject:
   - component: {fileID: 909835303}
   - component: {fileID: 909835302}
   m_Layer: 5
-  m_Name: TaskButton (1)
+  m_Name: CompleteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11217,8 +11217,8 @@ MonoBehaviour:
     materi\xE1l. Si na to?"
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
   agent: {fileID: 1769705521}
-  range: 20
-  centrePoint: {fileID: 832575519}
+  range: 3
+  centrePoint: {fileID: 1769705524}
 --- !u!4 &1769705524
 Transform:
   m_ObjectHideFlags: 0
