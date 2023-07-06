@@ -57,6 +57,7 @@ public class TaskUI : MonoBehaviour
             Task task = player.tasks[i];
             
             win.transform.Find("PlayerTaskName").GetComponent<TextMeshProUGUI>().text = task.Name;
+          
             win.transform.Find("frame").transform.Find("PlayerTaskOther").GetComponent<TextMeshProUGUI>().text = task.other;
 
       

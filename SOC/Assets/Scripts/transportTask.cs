@@ -12,7 +12,6 @@ public class transportTask : MonoBehaviour
     public int numberOfCrates0;
     public int numberOfCrates1;
     public int MaxNumberOfCrates;
-    int cratesDone = 0;
     public Task task;
     GameObject boxesGameobject;
     public GameObject playerInRange = null;
@@ -59,7 +58,7 @@ public class transportTask : MonoBehaviour
     {
         DestroyControll();
 
-        task.other = cratesDone.ToString() + " / " + MaxNumberOfCrates.ToString();
+        task.other = numberOfCrates1.ToString() + " / " + MaxNumberOfCrates.ToString();
         //finnishControll();
         textUpdate();
         
