@@ -18,7 +18,7 @@ public class Task : MonoBehaviour
     public int timeToFinish = 60;
     public int time = 0;
 
-    public string other ="";
+    public string other = "";
 
     private void Start()
     {
