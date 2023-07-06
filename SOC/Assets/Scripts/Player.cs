@@ -121,7 +121,6 @@ public class Player : MonoBehaviour
                 cameraRotation = false;
                 playerInteracting = true;
                 obj.transform.parent.GetComponent<Npc>().interacting = true;
-                print(obj.transform.parent.GetComponent<Npc>().interacting);
 
             }
             else
@@ -221,7 +220,6 @@ public class Player : MonoBehaviour
                 if (obj.transform.parent.parent.gameObject.GetComponent<transportTask>() == null) return;
                 if (obj.transform.parent.parent.gameObject.GetComponent<transportTask>().playerInRange !=
                     obj.gameObject.transform.parent.gameObject) { return; }
-                print(obj.transform.parent.parent.gameObject);
                 if (carringObj.GetComponent<carriedObjectIdentifier>().transportObj != obj.transform.parent.parent.gameObject) return;
                 
                 if (obj.transform.parent.transform.parent.gameObject.GetComponent<transportTask>() != null)
