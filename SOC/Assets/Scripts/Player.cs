@@ -193,6 +193,7 @@ public class Player : MonoBehaviour
                     obj.transform.parent.parent.parent.parent.GetComponent<transportTask>().numberOfCrates1--;
 
                 }
+                obj.GetComponent<carriedObjectIdentifier>().carried = true;
                 Instantiate(obj).transform.parent = this.gameObject.transform.Find("orientation").transform;
                 foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
                 {
@@ -210,8 +211,9 @@ public class Player : MonoBehaviour
                 if (obj.transform.parent.parent.gameObject.GetComponent<transportTask>() == null) return;
                 if (obj.transform.parent.parent.gameObject.GetComponent<transportTask>().playerInRange !=
                     obj.gameObject.transform.parent.gameObject) { return; }
-
-
+                print(obj.transform.parent.parent.gameObject);
+                if (carringObj.GetComponent<carriedObjectIdentifier>().transportObj != obj.transform.parent.parent.gameObject) return;
+                
                 if (obj.transform.parent.transform.parent.gameObject.GetComponent<transportTask>() != null)
                 {
                     carringObj = null;
