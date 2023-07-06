@@ -47,20 +47,7 @@ public class TaskUI : MonoBehaviour
         updateWindows();
 
     }
-    void destroyControll()
-    {
-        for (int i = 0; i < taskWindows; i++)
-        {
-            GameObject win = GameObject.FindGameObjectsWithTag("task")[i];
-            Task task = player.tasks[i];
-
-            if (task.completed || task.failed)
-            {
-                Destroy(win);
-                return;
-            }
-        }
-    }
+ 
     void updateWindows()
     {
         if (GameObject.FindGameObjectsWithTag("task").Length != player.tasks.Count) { return; }

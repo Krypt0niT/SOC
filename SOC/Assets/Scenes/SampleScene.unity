@@ -1712,7 +1712,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 44ec72a3aa3a6d44a90a86d5fa134959, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3037,7 +3037,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 44ec72a3aa3a6d44a90a86d5fa134959, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3295,8 +3295,9 @@ MonoBehaviour:
     \u017Ee spolu pre\u017Eijeme \xFA\u017Easn\xE9 dobrodru\u017Estv\xE1 v prostred\xED
     \u0161koly.Ak sa c\xEDti\u0161 straten\xFD alebo potrebuje\u0161 radu, v\u017Edy
     ma tu n\xE1jde\u0161.Nech \u017Eiari tvoje vzdelanie v tejto simul\xE1cii!"
+  interacting: 0
   agent: {fileID: 493521641}
-  range: 0
+  range: 3
   centrePoint: {fileID: 493521643}
 --- !u!4 &493521643
 Transform:
@@ -3306,7 +3307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493521640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.71, y: 0, z: -1.5799999}
+  m_LocalPosition: {x: 2.69, y: 0, z: -4.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3479,7 +3480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530702247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.17, y: 0, z: 12.33}
+  m_LocalPosition: {x: -1.46, y: 0, z: 11.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4724,7 +4725,7 @@ MonoBehaviour:
   completed: 0
   failed: 0
   paid: 1
-  money: 1.5
+  money: 1.25
   timeToFinish: 100
   time: 100
   other: 
@@ -4750,8 +4751,9 @@ MonoBehaviour:
   - "Ahoj! M\xE1m pre teba \u0161peci\xE1lnu \xFAlohu. Potrebujem prenies\u0165 d\xF4le\u017Eit\xFD
     materi\xE1l. Si na to?"
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
+  interacting: 0
   agent: {fileID: 649202384}
-  range: 0
+  range: 3
   centrePoint: {fileID: 649202387}
 --- !u!4 &649202387
 Transform:
@@ -4761,7 +4763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649202383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.35, y: 0, z: -0.75}
+  m_LocalPosition: {x: 4.51, y: 0, z: 2.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5472,8 +5474,9 @@ MonoBehaviour:
   interctiveText: 
   interactiveIndex: 0
   conversation: []
+  interacting: 0
   agent: {fileID: 764020235}
-  range: 0
+  range: 3
   centrePoint: {fileID: 764020237}
 --- !u!4 &764020237
 Transform:
@@ -5483,7 +5486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764020234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.15, y: 0, z: -1.93}
+  m_LocalPosition: {x: 7.42, y: 0, z: -1.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6414,7 +6417,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 44ec72a3aa3a6d44a90a86d5fa134959, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9103,6 +9106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618ad9040d93fab44bca5d4ec0c5f806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactiveBar: {fileID: 0}
 --- !u!1 &1376186591
 GameObject:
   m_ObjectHideFlags: 0
@@ -11794,8 +11798,9 @@ MonoBehaviour:
   - "Ahoj! M\xE1m pre teba \u0161peci\xE1lnu \xFAlohu. Potrebujem prenies\u0165 d\xF4le\u017Eit\xFD
     materi\xE1l. Si na to?"
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
+  interacting: 0
   agent: {fileID: 1769705521}
-  range: 0
+  range: 3
   centrePoint: {fileID: 1769705524}
 --- !u!4 &1769705524
 Transform:
@@ -11805,7 +11810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769705520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5300002, y: 0, z: 0.23000002}
+  m_LocalPosition: {x: 0.03, y: 0, z: 0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12459,7 +12464,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 44ec72a3aa3a6d44a90a86d5fa134959, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

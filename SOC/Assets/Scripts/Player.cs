@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         taskTimeControll();
 
         boxCarring();
-
+        NpcStopper();
 
 
 
@@ -120,6 +120,8 @@ public class Player : MonoBehaviour
             {
                 cameraRotation = false;
                 playerInteracting = true;
+                obj.transform.parent.GetComponent<Npc>().interacting = true;
+                print(obj.transform.parent.GetComponent<Npc>().interacting);
 
             }
             else
@@ -129,6 +131,14 @@ public class Player : MonoBehaviour
                 obj.transform.parent.GetComponent<Npc>().interactiveIndex = 0;
             }
         }
+    }
+    void NpcStopper()
+    {
+        if (!GameObject.FindObjectOfType<MainUI>().interactiveBar.activeSelf) return;
+        if (getAimedObject() == null) return;
+        if (getAimedObject().transform.parent == null) return;
+        if (getAimedObject().transform.parent.GetComponent<Npc>() == null) return;
+        getAimedObject().transform.parent.GetComponent<Npc>().interacting = true;
     }
     public void hideInteractiveBar()
     {

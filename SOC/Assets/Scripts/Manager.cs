@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     private void Update()
     {
         taskTimeUpdate();
+        NpcInteractionClear();
     }
     void taskTimeUpdate()
     {
@@ -25,6 +26,16 @@ public class Manager : MonoBehaviour
         {
             if (!tasks[i].taken) { continue; }
             tasks[i].time--;
+        }
+    }
+    void NpcInteractionClear()
+    {
+        if (!GameObject.FindObjectOfType<MainUI>().interactiveBar.activeSelf)
+        {
+            for (int i = 0; i < GameObject.FindObjectsOfType<Npc>().Length; i++)
+            {
+                GameObject.FindObjectsOfType<Npc>()[i].interacting = false;
+            }
         }
     }
 }

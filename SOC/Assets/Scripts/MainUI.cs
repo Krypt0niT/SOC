@@ -9,7 +9,7 @@ public class MainUI : MonoBehaviour
     TextMeshProUGUI interactiveText;
     TextMeshProUGUI interactiveName;
     GameObject crosshair;
-    GameObject interactiveBar;
+    public GameObject interactiveBar;
 
     GameObject TaskBar;
     TextMeshProUGUI TaskText;
@@ -56,7 +56,7 @@ public class MainUI : MonoBehaviour
         else { interactiveBar.SetActive(false); }
 
         npcInteractiveText();
-        if (!interactiveBar.active)
+        if (!interactiveBar.activeSelf)
         {
             for (int i = 0; i < GameObject.FindObjectsOfType<Npc>().Length; i++)
             {
@@ -64,7 +64,9 @@ public class MainUI : MonoBehaviour
             }
         }
         MoneyText.text = GameObject.FindObjectOfType<Manager>().playerMoney.ToString() + "€";
+
     }
+    
     public void nextConvo()
     {
         Npc info = player.getAimedObject()
@@ -208,7 +210,6 @@ public class MainUI : MonoBehaviour
                 Destroy(GameObject.FindGameObjectsWithTag("task")[i]);
             }
         }
-        
         player.getAimedObject().transform.parent.GetComponent<Task>().completed = true;
         player.hideInteractiveBar();
         player.tasks.Remove(player.getAimedObject().transform.parent.GetComponent<Task>());

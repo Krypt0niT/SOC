@@ -18,6 +18,9 @@ public class Npc : MonoBehaviour
 
     TextMeshPro symbol;
 
+    public bool interacting = false;
+    GameObject player;
+
 
     //movement
     public NavMeshAgent agent;
@@ -38,6 +41,7 @@ public class Npc : MonoBehaviour
             Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
             agent.SetDestination(point);
         }
+        player = GameObject.FindObjectOfType<Player>().gameObject;
     }
 
 
@@ -47,16 +51,37 @@ public class Npc : MonoBehaviour
         taskFinder();
         convoChange();
         symbolUpdate();
+
+        
+        
         movement();
+        
+        
 
 
 
     }
     void movement()
     {
+        Vector3 point;
+        if (interacting)
+        {
+            point = this.transform.position;
+            agent.SetDestination(point);
+            transform.LookAt(player.transform);
+            transform.rotation = Quaternion.Euler(
+            0,
+            transform.rotation.eulerAngles.y,
+            0
+            );
+            return;
+
+        }
         if (agent.remainingDistance <= agent.stoppingDistance) //done with path
         {
-            Vector3 point;
+            
+            
+            
             if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area  
             {
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
