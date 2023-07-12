@@ -21,7 +21,6 @@ public class Npc : MonoBehaviour
     public bool interacting = false;
     GameObject player;
 
-
     //movement
     public NavMeshAgent agent;
     public float range; //radius of sphere
@@ -29,7 +28,7 @@ public class Npc : MonoBehaviour
     public Transform centrePoint; //centre of the area the agent wants to move around in
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
 
-
+    Animator animator;
 
     private void Start()
     {
@@ -42,6 +41,7 @@ public class Npc : MonoBehaviour
             agent.SetDestination(point);
         }
         player = GameObject.FindObjectOfType<Player>().gameObject;
+        animator = transform.Find("model").GetComponent<Animator>();
     }
 
 
@@ -74,6 +74,7 @@ public class Npc : MonoBehaviour
             transform.rotation.eulerAngles.y,
             0
             );
+            animator.SetBool("walking", false);
             return;
 
         }
@@ -86,6 +87,7 @@ public class Npc : MonoBehaviour
             {
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                 agent.SetDestination(point);
+                animator.SetBool("walking", true);
             }
         }
     }
