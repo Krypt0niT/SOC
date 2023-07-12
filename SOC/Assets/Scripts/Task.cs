@@ -9,6 +9,7 @@ public class Task : MonoBehaviour
     public bool taken = false;
     public bool completed = false;
     public bool failed = false;
+    public bool handedOver = false;
 
     [Header("Ecomomy")]
     public bool paid = true;
@@ -30,12 +31,9 @@ public class Task : MonoBehaviour
         {
             Destroy(this);
         }
-        if (completed)
+        if (handedOver)
         {
-            if (paid)
-            {
-                GameObject.FindObjectOfType<Manager>().playerMoney += money;
-            }
+            
 
             Destroy(this);
         }

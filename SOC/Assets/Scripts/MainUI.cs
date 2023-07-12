@@ -202,18 +202,25 @@ public class MainUI : MonoBehaviour
     }
     public void finishTask()
     {
+        Task task = player.getAimedObject().transform.parent.GetComponent<Task>();
+        print(task.completed);
+        if (!task.completed) return;
         for (int i = 0; i < player.tasks.Count; i++)
         {
-            if (player.getAimedObject().transform.parent.GetComponent<Task>().Name ==
-                GameObject.FindGameObjectsWithTag("task")[i].transform.Find("PlayerTaskName").gameObject.GetComponent<TextMeshProUGUI>().text)
+            if (task.Name == GameObject.FindGameObjectsWithTag("task")[i].transform.Find("PlayerTaskName").gameObject.GetComponent<TextMeshProUGUI>().text)
             {
                 Destroy(GameObject.FindGameObjectsWithTag("task")[i]);
             }
         }
-        player.getAimedObject().transform.parent.GetComponent<Task>().completed = true;
+        
         player.hideInteractiveBar();
-        player.tasks.Remove(player.getAimedObject().transform.parent.GetComponent<Task>());
-        player.getAimedObject().transform.parent.GetComponent<Task>().gameObject.GetComponent<Npc>().interactable = false;
+        if (task.paid)
+        {
+            GameObject.FindObjectOfType<Manager>().playerMoney += task.money;
+        }
+        player.tasks.Remove(task);
+        task.gameObject.GetComponent<Npc>().interactable = false;
+        
     }
     void playerInteractText()
     {

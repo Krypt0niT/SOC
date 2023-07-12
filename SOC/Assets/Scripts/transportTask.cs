@@ -61,6 +61,14 @@ public class transportTask : MonoBehaviour
         task.other = numberOfCrates1.ToString() + " / " + MaxNumberOfCrates.ToString();
         //finnishControll();
         textUpdate();
+        if(MaxNumberOfCrates == numberOfCrates1)
+        {
+            task.completed = true;
+        }
+        else
+        {
+            task.completed = false;
+        }
         
 
     }
