@@ -203,6 +203,7 @@ public class MainUI : MonoBehaviour
     public void finishTask()
     {
         Task task = player.getAimedObject().transform.parent.GetComponent<Task>();
+
         print(task.completed);
         if (!task.completed) return;
         for (int i = 0; i < player.tasks.Count; i++)
