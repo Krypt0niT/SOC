@@ -28,6 +28,11 @@ public class Npc : MonoBehaviour
     public Transform centrePoint; //centre of the area the agent wants to move around in
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
 
+    float walkingWaitTime;
+    float walkingWaitTick = 0;
+    [SerializeField] float walkingMinWaitTime = 2;
+    [SerializeField] float walkingMaxWaitTime = 5;
+
     Animator animator;
 
     private void Start()
@@ -42,6 +47,7 @@ public class Npc : MonoBehaviour
         }
         player = GameObject.FindObjectOfType<Player>().gameObject;
         animator = transform.Find("model").GetComponent<Animator>();
+        walkingWaitTime = Random.Range(walkingMinWaitTime, walkingMaxWaitTime);
     }
 
 
@@ -78,18 +84,34 @@ public class Npc : MonoBehaviour
             return;
 
         }
-        if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+        
+        
+        
+        if (agent.remainingDistance <= agent.stoppingDistance) 
         {
+            animator.SetBool("walking", false);
+            walkingWaitTick += Time.deltaTime;
+            if (walkingWaitTick >= walkingWaitTime)
+            {
+                walkingWaitTick = 0;
+                walkingWaitTime = Random.Range(walkingMinWaitTime, walkingMaxWaitTime);
+                walk();
+            }
             
+        }
             
-            
+        void walk()
+        {
             if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area  
             {
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                 agent.SetDestination(point);
                 animator.SetBool("walking", true);
             }
-        }
+        }   
+            
+        
+        
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {

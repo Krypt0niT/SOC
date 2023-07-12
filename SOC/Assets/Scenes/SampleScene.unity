@@ -2675,10 +2675,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1
-  m_Acceleration: 3
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2731,8 +2731,10 @@ MonoBehaviour:
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
   interacting: 0
   agent: {fileID: 649202384}
-  range: 3
+  range: 6
   centrePoint: {fileID: 649202387}
+  walkingMinWaitTime: 2
+  walkingMaxWaitTime: 5
 --- !u!4 &649202387
 Transform:
   m_ObjectHideFlags: 0
@@ -3133,10 +3135,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1
-  m_Acceleration: 3
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3164,8 +3166,10 @@ MonoBehaviour:
   conversation: []
   interacting: 0
   agent: {fileID: 764020235}
-  range: 3
+  range: 6
   centrePoint: {fileID: 764020237}
+  walkingMinWaitTime: 2
+  walkingMaxWaitTime: 5
 --- !u!4 &764020237
 Transform:
   m_ObjectHideFlags: 0
@@ -6818,10 +6822,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1
-  m_Acceleration: 3
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -6874,8 +6878,10 @@ MonoBehaviour:
   - "Zabezpe\u010D prenos materi\xE1lu. Odmen\xEDm \u0165a. Si pripraven\xFD?"
   interacting: 0
   agent: {fileID: 1769705521}
-  range: 3
+  range: 6
   centrePoint: {fileID: 1769705524}
+  walkingMinWaitTime: 2
+  walkingMaxWaitTime: 5
 --- !u!4 &1769705524
 Transform:
   m_ObjectHideFlags: 0
@@ -7156,10 +7162,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1
-  m_Acceleration: 3
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -7198,8 +7204,10 @@ MonoBehaviour:
     ma tu n\xE1jde\u0161.Nech \u017Eiari tvoje vzdelanie v tejto simul\xE1cii!"
   interacting: 0
   agent: {fileID: 1840013819}
-  range: 3
+  range: 6
   centrePoint: {fileID: 1840013818}
+  walkingMinWaitTime: 2
+  walkingMaxWaitTime: 5
 --- !u!1 &1842556552
 GameObject:
   m_ObjectHideFlags: 0
