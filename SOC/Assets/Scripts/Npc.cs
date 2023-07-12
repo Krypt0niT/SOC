@@ -29,9 +29,9 @@ public class Npc : MonoBehaviour
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
 
     float walkingWaitTime;
-    float walkingWaitTick = 0;
-    [SerializeField] float walkingMinWaitTime = 2;
-    [SerializeField] float walkingMaxWaitTime = 5;
+    public float walkingWaitTick = 0;
+    [SerializeField] float walkingMinWaitTime;
+    [SerializeField] float walkingMaxWaitTime;
 
     Animator animator;
 
@@ -90,6 +90,8 @@ public class Npc : MonoBehaviour
         if (agent.remainingDistance <= agent.stoppingDistance) 
         {
             animator.SetBool("walking", false);
+            point = this.transform.position;
+            agent.SetDestination(point);
             walkingWaitTick += Time.deltaTime;
             if (walkingWaitTick >= walkingWaitTime)
             {
@@ -104,6 +106,9 @@ public class Npc : MonoBehaviour
         {
             if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area  
             {
+                //if(this.gameObject.name == "npc")
+                    
+
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                 agent.SetDestination(point);
                 animator.SetBool("walking", true);

@@ -324,6 +324,7 @@ MonoBehaviour:
   taken: 0
   completed: 0
   failed: 0
+  handedOver: 0
   paid: 1
   money: 1.25
   timeToFinish: 100
@@ -355,6 +356,7 @@ MonoBehaviour:
   agent: {fileID: 4041945}
   range: 6
   centrePoint: {fileID: 4041944}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!1001 &34956196
@@ -3605,6 +3607,7 @@ MonoBehaviour:
   taken: 0
   completed: 0
   failed: 0
+  handedOver: 0
   paid: 1
   money: 1.25
   timeToFinish: 100
@@ -3636,6 +3639,7 @@ MonoBehaviour:
   agent: {fileID: 649202384}
   range: 6
   centrePoint: {fileID: 649202387}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!4 &649202387
@@ -4585,6 +4589,7 @@ MonoBehaviour:
   agent: {fileID: 764020235}
   range: 6
   centrePoint: {fileID: 764020237}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!4 &764020237
@@ -4595,7 +4600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764020234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.42, y: 0, z: -1.08}
+  m_LocalPosition: {x: 14.11, y: 0, z: -13.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9317,6 +9322,7 @@ MonoBehaviour:
   taken: 0
   completed: 0
   failed: 0
+  handedOver: 0
   paid: 1
   money: 1.5
   timeToFinish: 200
@@ -9348,6 +9354,7 @@ MonoBehaviour:
   agent: {fileID: 1610285628}
   range: 6
   centrePoint: {fileID: 1610285627}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!1 &1611068041
@@ -9426,6 +9433,7 @@ MonoBehaviour:
   taken: 0
   completed: 0
   failed: 0
+  handedOver: 0
   paid: 1
   money: 1.5
   timeToFinish: 200
@@ -9457,6 +9465,7 @@ MonoBehaviour:
   agent: {fileID: 1611068043}
   range: 6
   centrePoint: {fileID: 1611068042}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!1 &1613760615
@@ -10179,6 +10188,7 @@ MonoBehaviour:
   taken: 0
   completed: 0
   failed: 0
+  handedOver: 0
   paid: 1
   money: 1.5
   timeToFinish: 200
@@ -10210,6 +10220,7 @@ MonoBehaviour:
   agent: {fileID: 1769705521}
   range: 6
   centrePoint: {fileID: 1769705524}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!4 &1769705524
@@ -10641,6 +10652,7 @@ MonoBehaviour:
   agent: {fileID: 1840013819}
   range: 6
   centrePoint: {fileID: 1840013818}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!1 &1842556552
@@ -12061,6 +12073,7 @@ MonoBehaviour:
   taken: 0
   completed: 0
   failed: 0
+  handedOver: 0
   paid: 1
   money: 1.25
   timeToFinish: 100
@@ -12092,6 +12105,7 @@ MonoBehaviour:
   agent: {fileID: 2026674827}
   range: 6
   centrePoint: {fileID: 2026674826}
+  walkingWaitTick: 0
   walkingMinWaitTime: 2
   walkingMaxWaitTime: 5
 --- !u!1 &2042002845
