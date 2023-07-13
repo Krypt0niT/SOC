@@ -138,8 +138,7 @@ public class transportTask : MonoBehaviour
 
         info1.text = "";
         if (GameObject.FindObjectOfType<Player>().carringObj == null) return;
-        print(GameObject.FindObjectOfType<Player>().carringObj.GetComponent<carriedObjectIdentifier>().transportObj);
-        print(this.gameObject);
+       
         if (GameObject.FindObjectOfType<Player>().carringObj.GetComponent<carriedObjectIdentifier>().transportObj !=
             this.gameObject
 

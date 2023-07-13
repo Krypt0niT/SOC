@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class MainUI : MonoBehaviour
 {
 
@@ -16,6 +18,8 @@ public class MainUI : MonoBehaviour
 
     GameObject TaskBarTake;
     GameObject TaskBarTaken;
+    GameObject CompleteButton;
+    Animation CompleteButtonAnim;
 
     TextMeshProUGUI MoneyText;
 
@@ -38,9 +42,10 @@ public class MainUI : MonoBehaviour
         
         TaskBarTake = GameObject.Find("TaskBarState0").gameObject;
         TaskBarTaken = GameObject.Find("TaskBarState1").gameObject;
+        CompleteButton = TaskBarTaken.gameObject.transform.Find("CompleteButton").gameObject;
 
         MoneyText = GameObject.Find("MoneyText").GetComponent<TextMeshProUGUI>();
-
+        CompleteButtonAnim = CompleteButton.GetComponent<Animation>();
 
     }
 
@@ -120,6 +125,17 @@ public class MainUI : MonoBehaviour
         {
             TaskBarTake.SetActive(false);
             TaskBarTaken.SetActive(true);
+            if (player.getAimedObject().transform.parent.GetComponent<Task>().completed)
+            {
+                CompleteButton.GetComponent<Image>().color = new Color32(3, 188, 19, 255);
+                CompleteButtonAnim.Play();
+            }
+            else
+            {
+                CompleteButton.GetComponent<Image>().color = new Color32(61, 61, 61, 255);
+                CompleteButtonAnim.Stop();
+            }
+
         }
     }
     public void TaskBarHide()
@@ -204,7 +220,6 @@ public class MainUI : MonoBehaviour
     {
         Task task = player.getAimedObject().transform.parent.GetComponent<Task>();
 
-        print(task.completed);
         if (!task.completed) return;
         for (int i = 0; i < player.tasks.Count; i++)
         {

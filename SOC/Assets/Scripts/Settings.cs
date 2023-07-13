@@ -9,5 +9,7 @@ public class Settings : MonoBehaviour
     public float sensitivityY;
 
     public KeyCode interactKey = KeyCode.E;
+    public KeyCode escapeKey = KeyCode.Escape;
+
 
 }

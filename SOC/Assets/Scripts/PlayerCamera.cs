@@ -40,12 +40,12 @@ public class PlayerCamera : MonoBehaviour
             orientation.rotation = Quaternion.Euler(0, yRotation, 0);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            
         }
         else
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        
     }
 }

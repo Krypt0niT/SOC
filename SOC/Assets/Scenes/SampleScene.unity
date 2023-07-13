@@ -4719,6 +4719,7 @@ MonoBehaviour:
   sensitivityX: 200
   sensitivityY: 100
   interactKey: 101
+  escapeKey: 27
 --- !u!4 &791374450
 Transform:
   m_ObjectHideFlags: 0
@@ -5211,6 +5212,7 @@ GameObject:
   - component: {fileID: 909835304}
   - component: {fileID: 909835303}
   - component: {fileID: 909835302}
+  - component: {fileID: 909835305}
   m_Layer: 5
   m_Name: CompleteButton
   m_TagString: Untagged
@@ -5333,6 +5335,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909835300}
   m_CullTransparentMesh: 1
+--- !u!111 &909835305
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909835300}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: bd2977b7093de9c469d76d3f4feea71e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: bd2977b7093de9c469d76d3f4feea71e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &910390291
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,7 +7232,7 @@ GameObject:
   - component: {fileID: 1225849543}
   - component: {fileID: 1225849542}
   m_Layer: 5
-  m_Name: TaskButton
+  m_Name: TakeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

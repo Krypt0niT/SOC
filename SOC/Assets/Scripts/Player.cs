@@ -106,10 +106,10 @@ public class Player : MonoBehaviour
     }
     private void interactControll()
     {
+        GameObject obj = getAimedObject();
+
         if (Input.GetKeyDown(settings.interactKey))
         {
-            GameObject obj = getAimedObject();
-
             if (obj == null) { return; }
             if (obj.transform.parent == null) { return; }
             if (obj.transform.parent.GetComponent<Npc>() == null) { return; }
@@ -129,6 +129,16 @@ public class Player : MonoBehaviour
                 playerInteracting = false;
                 obj.transform.parent.GetComponent<Npc>().interactiveIndex = 0;
             }
+        }
+        if (Input.GetKeyDown(settings.escapeKey))
+        {
+            if (obj == null) { return; }
+            if (obj.transform.parent == null) { return; }
+            if (obj.transform.parent.GetComponent<Npc>() == null) { return; }
+            if (!obj.transform.parent.GetComponent<Npc>().interacting) return;
+            cameraRotation = true;
+            playerInteracting = false;
+            obj.transform.parent.GetComponent<Npc>().interactiveIndex = 0;
         }
     }
     void NpcStopper()
