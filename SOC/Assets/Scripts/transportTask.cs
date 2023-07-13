@@ -126,33 +126,29 @@ public class transportTask : MonoBehaviour
             );
 
         // info
-        if(numberOfCrates0 > 0)
+        info0.text = "";
+        info1.text = "";
+
+        if (numberOfCrates0 > 0)
         {
             info0.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to pick up.";
             info0.text += "<br>Boxes left: " + numberOfCrates0;
         }
-        else
-        {
-            info0.text = "";
-        }
-
-        info1.text = "";
-        if (GameObject.FindObjectOfType<Player>().carringObj == null) return;
-       
-        if (GameObject.FindObjectOfType<Player>().carringObj.GetComponent<carriedObjectIdentifier>().transportObj !=
-            this.gameObject
-
-            ) return;
-
-        if (numberOfCrates1 == MaxNumberOfCrates)
+        else if (numberOfCrates1 == MaxNumberOfCrates)
         {
             info1.text = "COMPLETED!";
+            info0.text = "";
+            print("a");
         }
-        else
-        {
-            info1.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to put down.";
-            info1.text += "<br>" + numberOfCrates1 + "/" + MaxNumberOfCrates;
-        }
+       
+
+        if (GameObject.FindObjectOfType<Player>().carringObj == null) return;
+        if (GameObject.FindObjectOfType<Player>().carringObj.GetComponent<carriedObjectIdentifier>().transportObj != this.gameObject) return;
+
+        
+        info1.text = "Press " + GameObject.FindObjectOfType<Settings>().interactKey + " to put down.";
+        info1.text += "<br>" + numberOfCrates1 + "/" + MaxNumberOfCrates;
+        
         
         
     }

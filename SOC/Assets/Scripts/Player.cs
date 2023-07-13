@@ -261,7 +261,7 @@ public class Player : MonoBehaviour
             
             foreach (Transform child in this.gameObject.transform.Find("orientation").transform)
             {
-                child.transform.localPosition = new Vector3(0, 0.24f, 0.3f);
+                child.transform.localPosition = new Vector3(0, 0.20f, 0.3f);
                 child.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 child.gameObject.layer = 0;
             }
