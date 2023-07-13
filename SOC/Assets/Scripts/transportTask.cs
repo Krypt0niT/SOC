@@ -138,7 +138,6 @@ public class transportTask : MonoBehaviour
         {
             info1.text = "COMPLETED!";
             info0.text = "";
-            print("a");
         }
        
 

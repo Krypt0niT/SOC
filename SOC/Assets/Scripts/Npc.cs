@@ -48,6 +48,8 @@ public class Npc : MonoBehaviour
         player = GameObject.FindObjectOfType<Player>().gameObject;
         animator = transform.Find("model").GetComponent<Animator>();
         walkingWaitTime = Random.Range(walkingMinWaitTime, walkingMaxWaitTime);
+
+        InitRandom();
     }
 
 
@@ -133,6 +135,30 @@ public class Npc : MonoBehaviour
 
         result = Vector3.zero;
         return false;
+    }
+    void InitRandom()
+    {
+        //gender
+        bool IsMale = true;
+        int GenderRandom = Random.Range(0,2);
+        if (GenderRandom == 1) IsMale = false;
+
+        //names
+        NpcNames npcNames = this.gameObject.AddComponent<NpcNames>();
+        if (IsMale) this.gameObject.name = npcNames.MaleNames[Random.Range(0, npcNames.MaleNames.Count - 1)];
+        else this.gameObject.name = npcNames.FemaleNames[Random.Range(0, npcNames.FemaleNames.Count - 1)];
+        Destroy(npcNames);
+
+        //color
+        if (IsMale) transform.Find("model").transform.Find("Group1").GetComponent<Renderer>().material.color = new Color32(20,20,200,255);
+        else transform.Find("model").transform.Find("Group1").GetComponent<Renderer>().material.color = new Color32(200, 20,20,255);
+
+        //height
+        float height;
+        if (IsMale) height = Random.Range(0.75f, 0.95f);
+        else height = Random.Range(0.7f, 0.85f);
+        this.gameObject.transform.localScale = new Vector3(height, height, height);
+
     }
     void symbolUpdate()
     {

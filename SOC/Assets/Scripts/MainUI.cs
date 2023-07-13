@@ -236,7 +236,9 @@ public class MainUI : MonoBehaviour
         }
         player.tasks.Remove(task);
         task.gameObject.GetComponent<Npc>().interactable = false;
-        
+        task.gameObject.GetComponent<Npc>().GetComponent<Task>().handedOver = true;
+
+
     }
     void playerInteractText()
     {
